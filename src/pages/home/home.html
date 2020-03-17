@@ -1,17 +1,42 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Home</ion-title>
+    <ion-title style="text-align: center;" >Home</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+<ion-content [fullscreen]="true"> 
+  <ion-card (click)="someFunction()">
+ 
+    <img src="https://ionicframework.com/docs/v3/dist/preview-app/www/assets/img/nin-live.png" />
+    <ion-card-header>
+      <ion-card-title>Caso confirmado no TI</ion-card-title>
+      <!-- <ion-card-subtitle>23 de janeiro às 20:00h</ion-card-subtitle> -->
+    </ion-card-header>
+   
+    <ion-card-content>
+      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
+      standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a
+      type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,
+    
+    </ion-card-content>
+   
+  </ion-card>
+
+  <ion-card (click)="someFunction()">
+ 
+    <img src="https://ionicframework.com/docs/v3/dist/preview-app/www/assets/img/nin-live.png" />
+    <ion-card-header>
+      <ion-card-title>Caso confirmado no TI</ion-card-title>
+      <!-- <ion-card-subtitle>23 de janeiro às 20:00h</ion-card-subtitle> -->
+    </ion-card-header>
+   
+    <ion-card-content>
+      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
+      standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a
+      type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,
+    
+    </ion-card-content>
+   
+  </ion-card>
+
 </ion-content>
