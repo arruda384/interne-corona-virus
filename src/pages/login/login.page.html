@@ -8,41 +8,41 @@
 
 <ion-content>
 
-  <!-- <ion-card class="ion-card-prev" (click)="exibirTipoLogin(1)">
-    <img class="img-prev" src="./assets/imgs/01.jpg" />
-    <div class="ion-card-prev-title card-title">Login AD</div>
-  </ion-card>
-
-  <ion-card class="ion-card-prev" (click)="exibirTipoLogin(2)">
-    <img class="img-prev" src="./assets/imgs/01.jpg" />
-    <div class="ion-card-prev-title card-title">Login Google</div>
-  </ion-card> -->
-
   <ion-grid>
     <ion-row>
       <ion-col>
-        <ion-card  (click)="exibirTipoLogin(1)" class="buttonLogin backgroundRed" >
+        <ion-card (click)="exibirTipoLogin(1)" class="buttonLogin backgroundRed">
           <img src="./assets/imgs/interne.png" />
         </ion-card>
       </ion-col>
       <ion-col>
-        <ion-card   (click)="exibirTipoLogin(2)" class="buttonLogin">
+        <ion-card (click)="exibirTipoLogin(2)" class="buttonLogin">
           <img src="./assets/imgs/google.png" />
         </ion-card>
       </ion-col>
     </ion-row>
   </ion-grid>
 
-  <form *ngIf="exibirLoginAd">
+  <form *ngIf="exibirLoginAd" class="formLogin">
+    
     <ion-item>
-      <ion-label>Login: </ion-label>
-      <ion-input [(ngModel)]="creds.login" name="login" type="text"> </ion-input>
+      <ion-label>
+        <ion-icon name="person"></ion-icon>
+      </ion-label>
+      <ion-input [(ngModel)]="creds.login" name="login" type="text" placeholder="Login">
+      </ion-input>
     </ion-item>
     <ion-item>
-      <ion-label>Senha: </ion-label>
-      <ion-input [(ngModel)]="creds.senha" name="senha" type="password"> </ion-input>
+      <ion-label>
+        <ion-icon name="lock"></ion-icon>
+      </ion-label>
+      <ion-input [(ngModel)]="creds.senha" name="senha" type="password" placeholder="Senha"></ion-input>
     </ion-item>
-    <button ion-button (click)="login()" expand="full">Login</button>
+
+    <button class="buttonLog" ion-button (click)="login()" expand="full">
+      Login
+    </button>
+
   </form>
 
 </ion-content>
