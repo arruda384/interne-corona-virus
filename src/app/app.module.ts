@@ -14,6 +14,8 @@ import { BasicPage } from '../pages/modal/page';
 import { ModalContentPage } from '../pages/modal/ModalContentPage';
 import { LoginPage } from '../pages/login/login.page';
 import { BackgroundMode } from '@ionic-native/background-mode/ngx';
+import { AuthService } from '../services/auth.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,8 @@ import { BackgroundMode } from '@ionic-native/background-mode/ngx';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    HttpClientModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -44,6 +47,7 @@ import { BackgroundMode } from '@ionic-native/background-mode/ngx';
   ],
   providers: [
     StatusBar,
+    AuthService,
     SplashScreen,
     BackgroundMode,
     {provide: ErrorHandler, useClass: IonicErrorHandler}

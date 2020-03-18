@@ -9,7 +9,7 @@ import { API_CONFIG } from '../config/api.config';
 export class AuthService{
 
     constructor(public http: HttpClient){}
-    
+
     authenticate(creds: CredenciaisDTO){
       return this.http.post(API_CONFIG.baseUrl + '/login',
         creds,
@@ -18,15 +18,6 @@ export class AuthService{
             responseType: 'text',
         })
     }
-
-    refreshToken(){
-        return this.http.post(API_CONFIG.baseUrl + '/auth/refresh_token',
-         {}, 
-          {
-              observe: 'response',
-              responseType: 'text',
-          })
-      }
 
         successfulLogin(authorizationValue : string){
             let tok = authorizationValue.substring(7);

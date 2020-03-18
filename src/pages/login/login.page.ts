@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
 import { CredenciaisDTO } from '../../models/credenciais.dto';
-import { NavController } from 'ionic-angular';
+import { NavController, LoadingController } from 'ionic-angular';
 import { AuthService } from '../../services/auth.service';
 import { TabsPage } from '../tabs/tabs';
-import { PrevencaoPage } from '../prevencao/prevencao';
 
 
 
@@ -26,7 +25,9 @@ export class LoginPage {
   exibirLoginGogole = false;
   exibirLoginAd = false;
   
-  constructor(public navCtrl: NavController) 
+  constructor(public navCtrl: NavController,
+    public loadingController: LoadingController,
+    private auth: AuthService) 
 
     {
   
@@ -63,7 +64,8 @@ export class LoginPage {
     //   },
     //   error =>{});
     // }
-     this.navCtrl.setRoot(TabsPage);
-  }}
-
+      this.navCtrl.setRoot(TabsPage);
+     
+  }
+}
 
