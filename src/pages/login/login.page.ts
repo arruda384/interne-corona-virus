@@ -41,8 +41,7 @@ export class LoginPage {
   }
 
 
-  loginAd(){
-    
+  loginAd(){   
   }
 
   exibirTipoLogin(id: number){
@@ -62,12 +61,13 @@ export class LoginPage {
     login(){
     //   this.auth.authenticate(this.creds)
     //   .subscribe(response => {
+    //     console.log(response);
     //     this.auth.successfulLogin(response.headers.get('Authorization'));
-    //     this.router.navigateByUrl('prevencao');
+    //     this.navCtrl.setRoot(TabsPage);
     //   },
     //   error =>{});
     // }
      this.navCtrl.setRoot(TabsPage);
-  }
+  }}
 
-}
+
