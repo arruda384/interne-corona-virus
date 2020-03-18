@@ -10,9 +10,9 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { PrevencaoPage } from '../pages/prevencao/prevencao';
 import { DenunciaPage } from '../pages/denuncia/denuncia';
-import { ViewPlayerPageModule } from '../pages/view-player/view-player.module';
 import { BasicPage } from '../pages/modal/page';
 import { ModalContentPage } from '../pages/modal/ModalContentPage';
+import { LoginPage } from '../pages/login/login.page';
 
 @NgModule({
   declarations: [
@@ -23,10 +23,10 @@ import { ModalContentPage } from '../pages/modal/ModalContentPage';
     TabsPage,
     BasicPage,
     ModalContentPage,
+    LoginPage,
     
   ],
   imports: [
-    ViewPlayerPageModule,
     BrowserModule,
     IonicModule.forRoot(MyApp)
   ],
@@ -39,6 +39,7 @@ import { ModalContentPage } from '../pages/modal/ModalContentPage';
     TabsPage,
     BasicPage,
     ModalContentPage,
+    LoginPage,
   ],
   providers: [
     StatusBar,

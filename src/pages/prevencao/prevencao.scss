@@ -1,25 +1,106 @@
-page-about {
+ion-app.md [padding] .scroll-content {
+    padding: 0px;
+}
 
+.bold{
+    font-weight: bold!important;
+}
+
+.divTitle{
+    line-height: 45px!important;
+    font-weight: bold!important;
+    color: #EE1B24;
+    font-family: "Source Sans Pro",Arial,Tahoma,sans-serif;
+    margin-bottom: 15px;
+    display: block;
+    text-align: center;
+}
+
+.divTitleBig{
+    font-size: 28px!important;
+}
+
+.divTitleSmall{
+    font-size: 20px!important;
+}
+
+.divText{
+    font-size: 20px!important;
+    line-height: 25px!important;
+    margin: 0 0 15px;
+}
+
+.divTextRed{
+    font-size: 17px;
+    line-height: 23px;
+    letter-spacing: 0px;
+    color: #EE1B24;
+    margin-bottom: 20px;
+}
+
+.divTextBlack{
+    font-size: 17px;
+    font-weight: 500;
+    line-height: 23px;
+    text-align: left;
+    letter-spacing: 0px;
+    color: #232323;
+    margin-bottom: 20px;
+}
+
+.preventCards{
+    margin:0px;
+    width:100%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    position: relative;
+}
+
+.darkCard{
+    background-color: #f3f3f3;
+}
+
+.lightCard{
+    background-color: #ffffff;
 }
 
 .listImg {
     width: 25%;
-
-}
-ion-card {
 }
 
 .ion-card-prev{
  max-height: 20%; 
-
 }
 
 .img-prev {
-    opacity: 0.7;
-  }
+    width: 212px;
+    height: auto;
+    margin-bottom: 25px;
+}
 
 .ion-card-prev-title{
     -webkit-text-stroke-width: 1.5px;
     -webkit-text-stroke-color: #000;
 }
-.card-background-page { ion-card { position: relative; text-align: center; } .card-title { position: absolute; top: 36%; font-size: 2.0em; width: 100%; font-weight: bold; color: #fff; } .card-subtitle { font-size: 1.0em; position: absolute; top: 52%; width: 100%; color: #fff; } }
+
+.card-background-page { 
+    ion-card { 
+        position: relative; 
+        text-align: center; 
+    } 
+    .card-title { 
+        position: absolute;
+         top: 36%;
+         font-size:
+         2.0em; 
+         width: 100%; 
+         font-weight: bold; 
+         color: #fff; 
+        } .card-subtitle { 
+            font-size: 1.0em; 
+            position: absolute; 
+            top: 52%; 
+            width: 100%; 
+            color: #fff; 
+        } 
+    }

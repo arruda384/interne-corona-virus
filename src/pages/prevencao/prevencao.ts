@@ -1,17 +1,10 @@
 import { Component, NgModule } from '@angular/core';
-import { ViewPlayerPage } from '../view-player/view-player';
-import { ViewPlayerPageModule } from '../view-player/view-player.module';
 import { HomePage } from '../home/home';
 
 import { ModalController, Platform, NavParams, ViewController, NavController } from 'ionic-angular';
 import { ModalContentPage } from '../modal/ModalContentPage';
-import { VideoPlayer } from '@ionic-native/video-player/ngx';
 import { prevencaoDTO } from './prevencaoDTO';
 
-
-@NgModule({
-  entryComponents: [ViewPlayerPageModule],
-})
 
 @Component({
   selector: 'page-prevencao',

@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title style="text-align: center;">
+      Login
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card class="ion-card-prev" (click)="exibirTipoLogin(1)">
+    <img class="img-prev" src="./assets/imgs/01.jpg" />
+    <div class="ion-card-prev-title card-title">Login AD</div>
+  </ion-card>
+
+  <ion-card class="ion-card-prev" (click)="exibirTipoLogin(2)">
+    <img class="img-prev" src="./assets/imgs/01.jpg" />
+    <div class="ion-card-prev-title card-title">Login Google</div>
+  </ion-card>
+
+  <form *ngIf="exibirLoginAd">
+    <ion-item>
+      <ion-label>Email: </ion-label>
+      <ion-input [(ngModel)]="creds.email" name="email" type="text" value='rodrigo@gmail.co'> </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Senha: </ion-label>
+      <ion-input [(ngModel)]="creds.senha" name="senha" type="password"> </ion-input>
+    </ion-item>
+    <button ion-button click="loginAd()" expand="full">Login</button>
+  </form>
+
+</ion-content>

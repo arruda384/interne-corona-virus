@@ -1,5 +1,7 @@
 {
   "name": "Interne-Corona-Vírus",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "ionic-angular"
 }

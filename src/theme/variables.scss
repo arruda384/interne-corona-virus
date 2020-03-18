@@ -34,11 +34,12 @@ $app-direction: ltr;
 // The "primary" color is the only required color in the map.
 
 $colors: (
-  primary:   #ed1c21,
+  primary:   #f3f3f3,
   secondary:  #32db64,
   danger:     #f53d3d,
   light:      #0000ff,
-  dark:       #222
+  dark:       #222,
+  interne-red: #ed1c21
 );
 
 body{
@@ -82,7 +83,7 @@ body{
 @import "noto-sans";
 
 // // Use the primary color as the background for the toolbar-md-background 
-// $toolbar-md-background: color($colors, primary); 
+$toolbar-md-background: color($colors, interne-red); 
 // // Use the default background for the tabbar since it inherits from toolbar 
 // $tabbar-md-background: #f000;
 // // Change the color of the tabs text 
