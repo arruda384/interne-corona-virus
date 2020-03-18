@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { CredenciaisDTO } from '../../models/credenciais.dto';
 import { NavController } from 'ionic-angular';
 import { AuthService } from '../../services/auth.service';
-import { Router } from '@angular/router';
 import { TabsPage } from '../tabs/tabs';
 import { PrevencaoPage } from '../prevencao/prevencao';
 
@@ -49,10 +48,7 @@ export class LoginPage {
     if(id===1){
       this.exibirLoginAd = true;
       this.exibirLoginGogole = false;
-
-    }
-
-    if(id===2){
+    }else if(id===2){
       this.exibirLoginAd = false;
       this.exibirLoginGogole = true;
     }

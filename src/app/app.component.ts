@@ -4,7 +4,6 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { BackgroundMode } from '@ionic-native/background-mode/ngx';
 import { TabsPage } from '../pages/tabs/tabs';
-import { Router } from '@angular/router';
 import { LoginPage } from '../pages/login/login.page';
 
 

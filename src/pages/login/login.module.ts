@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { Routes, RouterModule } from '@angular/router';
+// import { Routes, RouterModule } from '@angular/core';
 import { LoginPage } from './login.page';
 import { IonicModule } from 'ionic-angular';
 import { AuthService } from '../../services/auth.service';
+import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   {
