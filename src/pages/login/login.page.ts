@@ -1,7 +1,11 @@
 import { Component } from '@angular/core';
 import { CredenciaisDTO } from '../../models/credenciais.dto';
 import { NavController } from 'ionic-angular';
-// import { AuthService } from 'src/services/auth.service';
+import { AuthService } from '../../services/auth.service';
+import { Router } from '@angular/router';
+import { TabsPage } from '../tabs/tabs';
+import { PrevencaoPage } from '../prevencao/prevencao';
+
 
 
 @Component({
@@ -10,8 +14,11 @@ import { NavController } from 'ionic-angular';
 })
 export class LoginPage {
 
+
+  rootPage:any = TabsPage;
+
   creds : CredenciaisDTO = {
-    email: "",
+    login: "",
     senha: ""
 
   };
@@ -50,20 +57,17 @@ export class LoginPage {
       this.exibirLoginAd = false;
       this.exibirLoginGogole = true;
     }
+  }
 
-    // login(){
+    login(){
     //   this.auth.authenticate(this.creds)
     //   .subscribe(response => {
-    //     // this.auth.successfulLogin(response.headers.get('Authorization'));
-    //     // this.router.navigateByUrl('prevencao');
+    //     this.auth.successfulLogin(response.headers.get('Authorization'));
+    //     this.router.navigateByUrl('prevencao');
     //   },
     //   error =>{});
     // }
-
+     this.navCtrl.setRoot(TabsPage);
   }
-
- 
-
-
 
 }

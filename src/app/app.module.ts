@@ -13,6 +13,7 @@ import { DenunciaPage } from '../pages/denuncia/denuncia';
 import { BasicPage } from '../pages/modal/page';
 import { ModalContentPage } from '../pages/modal/ModalContentPage';
 import { LoginPage } from '../pages/login/login.page';
+import { BackgroundMode } from '@ionic-native/background-mode/ngx';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { LoginPage } from '../pages/login/login.page';
   providers: [
     StatusBar,
     SplashScreen,
+    BackgroundMode,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

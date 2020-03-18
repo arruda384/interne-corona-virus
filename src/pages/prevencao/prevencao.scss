@@ -1,5 +1,47 @@
-ion-app.md [padding] .scroll-content {
-    padding: 0px;
+.container img {
+    width: 100%;
+ }
+
+.bigTitle{
+    margin-top:30%;
+    color:#fff;
+    font-size: 40px!important;
+    line-height: 50px!important;
+    font-weight: bold;
+}
+
+.bigSubtitle{
+    margin-bottom:40%;
+    padding-top:4%;
+    padding-bottom:4%;
+}
+
+.coronaCard{
+    height:100%;
+    background: url('../../assets/imgs/corona.jpg') no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.centerPadding{
+    margin-right:50px;
+    margin-left:50px;
+}
+
+.backgroundRed{
+    background-color:#EE1B24!important;
+    color:#fff;
+}
+
+.buttonLogin{
+    padding: 10px;
+    width: 95%;
 }
 
 .bold{
@@ -14,6 +56,10 @@ ion-app.md [padding] .scroll-content {
     margin-bottom: 15px;
     display: block;
     text-align: center;
+}
+
+ion-app.md [padding] .scroll-content {
+    padding: 0px;
 }
 
 .divTitleBig{
@@ -104,3 +150,5 @@ ion-app.md [padding] .scroll-content {
             color: #fff; 
         } 
     }
+
+    
