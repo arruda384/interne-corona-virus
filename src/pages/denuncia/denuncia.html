@@ -8,113 +8,119 @@
 
 <ion-content>
 
-  <ion-label class="labelTitleForms">
-    DADOS DO PACIENTE
-  </ion-label>
+  <ion-list>
+    <form [formGroup]="formDenuncia">
 
-  <ion-item>
-    <ion-label>
-      <ion-icon name="contact"></ion-icon>
-    </ion-label>
-    <ion-input type="text" placeholder="Qual o seu nome?">
-    </ion-input>
-  </ion-item>
-
-  <ion-item>
-    <ion-label>
-      <ion-icon name="contacts"></ion-icon>
-    </ion-label>
-    <ion-select okText="OK" cancelText="Cancelar" interface="popover" placeholder="Qual o seu sexo?">
-      <ion-option value="M">Masculino</ion-option>
-      <ion-option value="F">Feminino</ion-option>
-    </ion-select>
-  </ion-item>
-
-  <ion-item>
-    <ion-label>
-      <ion-icon name="calendar"></ion-icon>
-    </ion-label>
-    <ion-datetime doneText="OK" cancelText="Cancelar" interface="popover" placeholder="Quando você nasceu?">
-    </ion-datetime>
-  </ion-item>
-
-  <ion-item>
-    <ion-label>
-      <ion-icon name="contact"></ion-icon>
-    </ion-label>
-    <ion-input type="number" placeholder="Quantos anos você tem?">
-    </ion-input>
-  </ion-item>
-
-  <ion-item>
-    <ion-label>
-      <ion-icon name="copy"></ion-icon>
-    </ion-label>
-    <ion-select okText="OK" cancelText="Cancelar" interface="popover" placeholder="Qual o seu Convênio?">
-      <ion-option value="amil">Amil</ion-option>
-      <ion-option value="hapvida">HapVida</ion-option>
-    </ion-select>
-  </ion-item>
-
-  <ion-item>
-    <ion-label>
-      <ion-icon name="clipboard"></ion-icon>
-    </ion-label>
-    <ion-select okText="OK" cancelText="Cancelar" interface="popover" placeholder="Qual sua Profissão?">
-      <ion-option value='1'>Cuidador</ion-option>
-      <ion-option value='2'>Enfermeiro</ion-option>
-      <ion-option value='3'>Familiar</ion-option>
-      <ion-option value='4'>Fisioterapeuta</ion-option>
-      <ion-option value='5'>Fonoterapeuta</ion-option>
-      <ion-option value='6'>Médico</ion-option>
-      <ion-option value='7'>Nutricionista</ion-option>
-      <ion-option value='8'>Téc. em Enfermagem</ion-option>
-      <ion-option value='9'>T.O.</ion-option>
-      <ion-option value='10'>Outros</ion-option>
-    </ion-select>
-  </ion-item>
-
-  <ion-label class="labelTitleForms">
-    SINTOMAS
-  </ion-label>
-
-  <ion-item>
-    <ion-label>
-      <ion-icon name="calendar"></ion-icon>
-    </ion-label>
-    <ion-datetime doneText="OK" cancelText="Cancelar" interface="popover" placeholder="Quando começaram os Sintomas?">
-    </ion-datetime>
-  </ion-item>
-
-  <ion-item>
-    <ion-label>
-      <ion-icon name="list-box"></ion-icon>
-    </ion-label>
-    <ion-select multiple="true" interface="popover" placeholder="O que está sentindo?">
-      <ion-option>Febre</ion-option>
-      <ion-option>Tosse</ion-option>
-      <ion-option>Congestão Nasal</ion-option>
-      <ion-option>Dor de Garganta</ion-option>
-      <ion-option>Dificuldade Respiratória</ion-option>
-    </ion-select>
-  </ion-item>
-
-  <ion-item>
-    <ion-label>
-      <ion-icon name="list-box"></ion-icon>
-    </ion-label>
-    <ion-select multiple="true" interface="popover" placeholder="Sinto falta de ar quando ...">
-      <ion-option value='1'>estou caminhando</ion-option>
-      <ion-option value='2'>estou repousando</ion-option>
-      <ion-option value='3'>escovo os dentes</ion-option>
-      <ion-option value='4'>penteio os cabelos</ion-option>
-      <ion-option value='5'>tomo banho sozinho</ion-option>
-      <ion-option value='6'>realizo outras atividades diárias</ion-option>
-    </ion-select>
-  </ion-item>
-
-  <button class="buttonLog buttonLog2" ion-button>
-    Salvar
-  </button>
+      <ion-label class="labelTitleForms">
+        DADOS DO PACIENTE
+      </ion-label>
+    
+      <ion-item>
+        <ion-label>
+          <ion-icon name="contact"></ion-icon>
+        </ion-label>
+        <ion-input type="text" formControlName="nome" placeholder="Qual o seu nome?">
+        </ion-input>
+      </ion-item>
+    
+      <ion-item>
+        <ion-label>
+          <ion-icon name="contacts"></ion-icon>
+        </ion-label>
+        <ion-select okText="OK" cancelText="Cancelar" interface="popover" formControlName="sexo" placeholder="Qual o seu sexo?">
+          <ion-option value="M">Masculino</ion-option>
+          <ion-option value="F">Feminino</ion-option>
+        </ion-select>
+      </ion-item>
+    
+      <ion-item>
+        <ion-label>
+          <ion-icon name="calendar"></ion-icon>
+        </ion-label>
+        <ion-datetime doneText="OK" cancelText="Cancelar" interface="popover" formControlName="dat_nascimento" placeholder="Quando você nasceu?">
+        </ion-datetime>
+      </ion-item>
+    
+      <ion-item>
+        <ion-label>
+          <ion-icon name="contact"></ion-icon>
+        </ion-label>
+        <ion-input type="number" formControlName="idade" placeholder="Quantos anos você tem?">
+        </ion-input>
+      </ion-item>
+    
+      <ion-item>
+        <ion-label>
+          <ion-icon name="copy"></ion-icon>
+        </ion-label>
+        <ion-select okText="OK" cancelText="Cancelar" interface="popover" formControlName="convenio" placeholder="Qual o seu Convênio?">
+          <ion-option value="amil">Amil</ion-option>
+          <ion-option value="hapvida">HapVida</ion-option>
+        </ion-select>
+      </ion-item>
+    
+      <ion-item>
+        <ion-label>
+          <ion-icon name="clipboard"></ion-icon>
+        </ion-label>
+        <ion-select okText="OK" cancelText="Cancelar" interface="popover" formControlName="idprofissao" placeholder="Qual sua Profissão?">
+          <ion-option value='1'>Cuidador</ion-option>
+          <ion-option value='2'>Enfermeiro</ion-option>
+          <ion-option value='3'>Familiar</ion-option>
+          <ion-option value='4'>Fisioterapeuta</ion-option>
+          <ion-option value='5'>Fonoterapeuta</ion-option>
+          <ion-option value='6'>Médico</ion-option>
+          <ion-option value='7'>Nutricionista</ion-option>
+          <ion-option value='8'>Téc. em Enfermagem</ion-option>
+          <ion-option value='9'>T.O.</ion-option>
+          <ion-option value='10'>Outros</ion-option>
+        </ion-select>
+      </ion-item>
+    
+      <ion-label class="labelTitleForms">
+        SINTOMAS
+      </ion-label>
+    
+      <ion-item>
+        <ion-label>
+          <ion-icon name="calendar"></ion-icon>
+        </ion-label>
+        <ion-datetime doneText="OK" cancelText="Cancelar" interface="popover" formControlName="dt_ini_sintomas" placeholder="Quando começaram os Sintomas?">
+        </ion-datetime>
+      </ion-item>
+    
+      <ion-item>
+        <ion-label>
+          <ion-icon name="list-box"></ion-icon>
+        </ion-label>
+        <ion-select multiple="true" interface="popover" formControlName="listaSintomas" placeholder="O que está sentindo?">
+          <ion-option>Febre</ion-option>
+          <ion-option>Tosse</ion-option>
+          <ion-option>Congestão Nasal</ion-option>
+          <ion-option>Dor de Garganta</ion-option>
+          <ion-option>Dificuldade Respiratória</ion-option>
+        </ion-select>
+      </ion-item>
+    
+      <ion-item>
+        <ion-label>
+          <ion-icon name="list-box"></ion-icon>
+        </ion-label>
+        <ion-select multiple="true" interface="popover" formControlName="listaFaltaDeAr" placeholder="Sinto falta de ar quando ...">
+          <ion-option value='1'>estou caminhando</ion-option>
+          <ion-option value='2'>estou repousando</ion-option>
+          <ion-option value='3'>escovo os dentes</ion-option>
+          <ion-option value='4'>penteio os cabelos</ion-option>
+          <ion-option value='5'>tomo banho sozinho</ion-option>
+          <ion-option value='6'>realizo outras atividades diárias</ion-option>
+        </ion-select>
+      </ion-item>
+    
+      <button type="submit" class="buttonLog buttonLog2" ion-button>
+        Salvar
+      </button>
+    
+    </form>
+  </ion-list>
 
 </ion-content>

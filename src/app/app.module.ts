@@ -10,7 +10,6 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { PrevencaoPage } from '../pages/prevencao/prevencao';
-import { DenunciaPage } from '../pages/denuncia/denuncia';
 import { BasicPage } from '../pages/modal/page';
 import { ModalContentPage } from '../pages/modal/ModalContentPage';
 import { LoginPage } from '../pages/login/login.page';
@@ -22,6 +21,7 @@ import { StorageService } from '../services/storage.service';
 import { ErrorInterceptorProvider } from '../interceptors/error-interceptor';
 import { AuthInterceptorProvider } from '../interceptors/auth-interceptor';
 import { RouteReuseStrategy } from '@angular/router';
+import { DenunciaPage } from '../pages/denuncia/denuncia.page';
 
 
 

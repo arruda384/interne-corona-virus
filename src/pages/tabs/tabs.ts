@@ -1,7 +1,7 @@
 import { Component, OnInit, OnChanges } from '@angular/core';
 
 import { PrevencaoPage } from '../prevencao/prevencao';
-import { DenunciaPage } from '../denuncia/denuncia';
+import { DenunciaPage } from '../denuncia/denuncia.page';
 import { HomePage } from '../home/home';
 import { LoginPage } from '../login/login.page';
 import { AuthService } from '../../services/auth.service';

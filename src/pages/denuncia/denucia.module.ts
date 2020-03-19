@@ -5,7 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IonicModule } from 'ionic-angular';
 import { AuthService } from '../../services/auth.service';
 import { Routes, RouterModule } from '@angular/router';
-import { DenunciaPage } from './denuncia';
+import { DenunciaPage } from './denuncia.page';
 
 const routes: Routes = [
   {
