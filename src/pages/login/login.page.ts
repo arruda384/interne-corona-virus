@@ -3,6 +3,8 @@ import { CredenciaisDTO } from '../../models/credenciais.dto';
 import { NavController, LoadingController } from 'ionic-angular';
 import { AuthService } from '../../services/auth.service';
 import { TabsPage } from '../tabs/tabs';
+import { GooglePlus } from '@ionic-native/google-plus/ngx';
+
 
 
 
@@ -11,8 +13,8 @@ import { TabsPage } from '../tabs/tabs';
   templateUrl: 'login.page.html',
 })
 export class LoginPage {
-
-
+  
+  loginDetails: any;
   rootPage:any = TabsPage;
 
   creds : CredenciaisDTO = {
@@ -26,7 +28,7 @@ export class LoginPage {
   exibirLoginGogole = false;
   exibirLoginAd = false;
   
-  constructor(public navCtrl: NavController,
+  constructor(public navCtrl: NavController, private googlePlus: GooglePlus,
     public loadingController: LoadingController,
     private auth: AuthService) 
 
@@ -51,7 +53,7 @@ export class LoginPage {
       this.exibirLoginAd = true;
       this.exibirLoginGogole = false;
       this.creds.funcionario = true; 
-      this.auth.loginFuncionario.emit((true));
+      this.auth.loginFuncionario.emit((true));     
     }else if(id===2){
       this.exibirLoginAd = false;
       this.exibirLoginGogole = true;
@@ -72,17 +74,23 @@ export class LoginPage {
       // error =>{});
     }
 
-    loginGoogle(){
-      // this.creds.funcionario = false;     
-      // this.auth.authenticate(this.creds)
-      // .subscribe(response => {
-      //   console.log(response);
-      //   this.auth.successfulLogin(response.headers.get('Authorization'));
-        this.auth.loginFuncionario.emit(false);    
-        console.log(this.creds); 
-        this.navCtrl.setRoot(TabsPage);
-      // },
-      // error =>{});
+   loginGoogle()
+      {
+        alert("TEste");
+        this.googlePlus.login({}).then((res)=>{
+          this.loginDetails = res;
+          console.log(this.loginDetails);
+
+        }, (err)=>{
+
+        })
+      }
+
+    logoutGoogle()
+    {
+      this.googlePlus.logout();
+      alert("logged out");
+
     }
      
   }

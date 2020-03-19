@@ -16,7 +16,7 @@
         </ion-card>
       </ion-col>
       <ion-col>
-        <ion-card (click)="exibirTipoLogin(2)" class="buttonLogin">
+        <ion-card (click)="loginGoogle()" class="buttonLogin">
           <img src="./assets/imgs/google.png" />
         </ion-card>
       </ion-col>
@@ -44,5 +44,23 @@
     </button>
 
   </form>
+
+  <div class="ion-padding">
+    <p>Dados google</p>
+
+    <!-- <ion-list *ngIf="loginDetails">
+      <ion-item">
+      </ion-item>
+      <ion-item>
+        <ion-label>{{loginDetails.displayName}}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>{{loginDetails.displayEmail}}</ion-label>
+      </ion-item>
+    
+    </ion-list> -->
+
+
+  </div>
 
 </ion-content>

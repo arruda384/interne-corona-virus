@@ -16,6 +16,9 @@ import { LoginPage } from '../pages/login/login.page';
 import { BackgroundMode } from '@ionic-native/background-mode/ngx';
 import { AuthService } from '../services/auth.service';
 import { HttpClientModule } from '@angular/common/http';
+import { GooglePlus } from '@ionic-native/google-plus/ngx';
+
+
 
 @NgModule({
   declarations: [
@@ -50,7 +53,8 @@ import { HttpClientModule } from '@angular/common/http';
     AuthService,
     SplashScreen,
     BackgroundMode,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    GooglePlus
   ]
 })
 export class AppModule {}

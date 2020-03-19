@@ -3,23 +3,32 @@
   color:#f3f3f3;
   font-weight: bold;
   border-radius: 30px;
-  width:100%;
+  max-width:100%;
+  min-width:90%;
   margin-top:8%;
+  margin-left:20px;
 }
 
-.alert-md .alert-button{
-  color:black;
-  font-weight: bold;
+.buttonLog2{
+  margin-bottom:8%;
+}
+
+.labelTitleForms{
+  font-size: 18px;
+  line-height: 35px!important;
+  font-weight: bold!important;
+  color: #EE1B24;
+  font-family: "Source Sans Pro",Arial,Tahoma,sans-serif;
+  margin-bottom: 1%;
+  display: block;
+  margin-left: 6%;
+  margin-top: 6%;
 }
 
 .formLogin{
   margin-top:8%;
   margin-right: 6%;
   margin-left: 6%;
-}
-
-ion-icon{
-  color:#ee1b24;
 }
 
 ion-select, ion-datetime {
@@ -35,10 +44,6 @@ ion-label{
   min-width:19.2px;
 }
 
-body{
-  border-style: none;
-}
-
 ion-input, ion-datetime, ion-select{
   background-color:#f3f3f3;
   border-radius: 30px;
@@ -48,15 +53,62 @@ ion-input, ion-datetime, ion-select{
 
 .buttonLogin{
   padding: 10px;
-  width: 95%;
+  width: 90%;
 }
 
 .backgroundRed{
   background-color:#ee1b24!important;
 }
 
-item-md.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner, .item-md.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
+
+.select-icon{
+  margin-right: 5%;
+  position: relative;
+}
+
+ion-icon,
+.select-md .select-icon .select-icon-inner{
+  color:#ee1b24;
+}
+
+item-md.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner,
+.item-md.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
   border-bottom: hidden;
   -webkit-box-shadow: inset 0 0px 0 0 #32db64;
   box-shadow: inset 0 0px 0 0 #32db64;
+}
+
+.alert-md [aria-checked=true] .alert-radio-inner {
+  border-color: #787878;
+  background-color:#ee1b24;
+}
+
+.alert-md [aria-checked=true] .alert-checkbox-inner {
+  border-style: solid;
+  border-color:#ee1b24;
+}
+
+.radio-md .radio-checked {
+  border-style:solid;
+  border-color: #ee1b24;
+}
+
+.item-radio-checked.item-md ion-label {
+  color: #ee1b24;
+  font-weight: bold;
+}
+
+.radio-md .radio-checked .radio-inner {
+  background-color:#ee1b24;
+}
+
+.alert-md .alert-button,
+.alert-md [aria-checked=true] .alert-radio-label,
+.picker-md .picker-prefix,
+.picker-md .picker-button,
+.picker-md .picker-suffix,
+.picker-md .picker-opt.picker-opt-selected,
+.alert-md [aria-checked=true] .alert-checkbox-label{
+  color: #ee1b24;
+  font-weight: bold;
 }

@@ -6,6 +6,7 @@ import { LoginPage } from './login.page';
 import { IonicModule } from 'ionic-angular';
 import { AuthService } from '../../services/auth.service';
 import { Routes, RouterModule } from '@angular/router';
+import { GooglePlus } from '@ionic-native/google-plus/ngx';
 
 const routes: Routes = [
   {
@@ -26,7 +27,8 @@ const routes: Routes = [
     LoginPage
   ],
   providers: [
-    AuthService
+    AuthService,
+    GooglePlus
   ]
 })
 export class LoginPageModule {}
