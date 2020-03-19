@@ -1,12 +1,15 @@
-
-
 .buttonLog{
   background-color: #ee1b24;
   color:#f3f3f3;
   font-weight: bold;
   border-radius: 30px;
   width:100%;
-  margin-top:5%;
+  margin-top:8%;
+}
+
+.alert-md .alert-button{
+  color:black;
+  font-weight: bold;
 }
 
 .formLogin{
@@ -19,16 +22,28 @@ ion-icon{
   color:#ee1b24;
 }
 
+ion-select, ion-datetime {
+  min-width:92%;
+}
+
+.item-md{
+  padding-left: 16px;
+  padding-right:16px;
+}
+
+ion-label{
+  min-width:19.2px;
+}
+
 body{
   border-style: none;
 }
 
-ion-input {
+ion-input, ion-datetime, ion-select{
   background-color:#f3f3f3;
   border-radius: 30px;
   margin-top:3%;
   padding-left: 5%;
-  border-style: none;
 }
 
 .buttonLogin{

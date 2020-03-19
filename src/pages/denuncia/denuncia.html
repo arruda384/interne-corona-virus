@@ -7,11 +7,69 @@
 </ion-header>
 
 <ion-content>
-  <ion-list>
-    <ion-list-header>Criar form</ion-list-header>
-    <ion-item>
-      <ion-icon name="ionic" item-start></ion-icon>
-      @ionicframework
-    </ion-item>
-  </ion-list>
+
+  <ion-item>
+    <ion-label>
+      <ion-icon name="contact"></ion-icon>
+    </ion-label>
+    <ion-input type="text" placeholder="Nome do Paciente">
+    </ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>
+      <ion-icon name="contacts"></ion-icon>
+    </ion-label>
+    <ion-select placeholder="Sexo">
+      <ion-option value="M">Masculino</ion-option>
+      <ion-option value="F">Feminino</ion-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>
+      <ion-icon name="calendar"></ion-icon>
+    </ion-label>
+    <ion-datetime placeholder="Data de Nascimento"></ion-datetime>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>
+      <ion-icon name="contact"></ion-icon>
+    </ion-label>
+    <ion-input type="number" placeholder="Idade">
+    </ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>
+      <ion-icon name="list-box"></ion-icon>
+    </ion-label>
+    <ion-select placeholder="Convênio">
+      <ion-option value="amil">Amil</ion-option>
+      <ion-option value="hapvida">HapVida</ion-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>
+      <ion-icon name="clipboard"></ion-icon>
+    </ion-label>
+    <ion-select placeholder="Profissão">
+      <ion-option value="med">Médico</ion-option>
+      <ion-option value="prf">Professor</ion-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>
+      <ion-icon name="calendar"></ion-icon>
+    </ion-label>
+    <ion-datetime name="senha" placeholder="Início dos Sintomas"></ion-datetime>
+  </ion-item>
+
+  <button class="buttonLog" ion-button>
+    Salvar
+  </button>
+
 </ion-content>
