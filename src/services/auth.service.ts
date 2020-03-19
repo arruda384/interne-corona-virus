@@ -14,8 +14,8 @@ export class AuthService{
     constructor(public http: HttpClient){}
 
     authenticate(creds: CredenciaisDTO){
-        this.loginFuncionario.emit(true);
-      return this.http.post(API_CONFIG.baseUrl + '/login',
+        // this.loginFuncionario.emit(true);
+      return this.http.post(API_CONFIG.baseUrl + '/interne_ad/public',
         creds,
         {
             observe: 'response',

@@ -4,7 +4,7 @@ import { NavController, LoadingController } from 'ionic-angular';
 import { AuthService } from '../../services/auth.service';
 import { TabsPage } from '../tabs/tabs';
 import { GooglePlus } from '@ionic-native/google-plus/ngx';
-
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 
 
@@ -13,13 +13,15 @@ import { GooglePlus } from '@ionic-native/google-plus/ngx';
   templateUrl: 'login.page.html',
 })
 export class LoginPage {
+
+  form: FormGroup;
   
   loginDetails: any;
   rootPage:any = TabsPage;
 
   creds : CredenciaisDTO = {
-    login: "1234",
-    senha: "123",
+    matricula: "teste123 ",
+    password: "1234",
     funcionario: null
 
   };
@@ -28,11 +30,14 @@ export class LoginPage {
   exibirLoginGogole = false;
   exibirLoginAd = false;
   
-  constructor(public navCtrl: NavController, private googlePlus: GooglePlus,
+  constructor(public navCtrl: NavController, private googlePlus: GooglePlus, private formBuilder: FormBuilder,
     public loadingController: LoadingController,
     private auth: AuthService) 
-
     {
+      this.form = this.formBuilder.group({
+        matricula: ['', [Validators.required]],
+        password: ['', [Validators.required]],
+      });
   
 }
  
@@ -47,6 +52,7 @@ export class LoginPage {
   loginAd(){   
   }
 
+  
   exibirTipoLogin(id: number){
     console.log(id);  
     if(id===1){
@@ -68,28 +74,30 @@ export class LoginPage {
       // .subscribe(response => {
       //   console.log(response);
       //   this.auth.successfulLogin(response.headers.get('Authorization'));
-        this.auth.loginFuncionario.emit((true));     
-        this.navCtrl.setRoot(TabsPage);
+      //   this.auth.loginFuncionario.emit((true));     
+      //   this.navCtrl.setRoot(TabsPage);
       // },
       // error =>{});
+
+      this.navCtrl.setRoot(TabsPage);
+
     }
 
    loginGoogle()
       {
-        alert("TEste");
+       
         this.googlePlus.login({}).then((res)=>{
           this.loginDetails = res;
           console.log(this.loginDetails);
 
         }, (err)=>{
-
+          console.log(err);
         })
       }
 
     logoutGoogle()
     {
       this.googlePlus.logout();
-      alert("logged out");
 
     }
      

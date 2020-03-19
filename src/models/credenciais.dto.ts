@@ -1,6 +1,6 @@
 export interface CredenciaisDTO{
-    login : string;
-    senha : string; 
+    matricula : string;
+    password : string; 
     funcionario: boolean;
 }
  

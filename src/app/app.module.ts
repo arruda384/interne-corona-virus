@@ -1,7 +1,8 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
+import { IonicApp, IonicModule, IonicErrorHandler} from 'ionic-angular';
 import { MyApp } from './app.component';
+
 
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
@@ -17,6 +18,11 @@ import { BackgroundMode } from '@ionic-native/background-mode/ngx';
 import { AuthService } from '../services/auth.service';
 import { HttpClientModule } from '@angular/common/http';
 import { GooglePlus } from '@ionic-native/google-plus/ngx';
+import { StorageService } from '../services/storage.service';
+import { ErrorInterceptorProvider } from '../interceptors/error-interceptor';
+import { AuthInterceptorProvider } from '../interceptors/auth-interceptor';
+import { RouteReuseStrategy } from '@angular/router';
+
 
 
 
@@ -54,7 +60,12 @@ import { GooglePlus } from '@ionic-native/google-plus/ngx';
     SplashScreen,
     BackgroundMode,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    GooglePlus
+    // { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    GooglePlus,
+    AuthInterceptorProvider,
+    AuthService,
+    ErrorInterceptorProvider,
+    StorageService,
   ]
 })
 export class AppModule {}

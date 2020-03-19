@@ -1,42 +1,77 @@
 <ion-header>
   <ion-navbar>
-    <ion-title style="text-align: center;" >Home </ion-title>
+    <ion-title style="text-align: center;">Home </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content [fullscreen]="true"> 
-  <ion-card (click)="someFunction()">
- 
-    <img src="https://ionicframework.com/docs/v3/dist/preview-app/www/assets/img/nin-live.png" />
+<ion-content [fullscreen]="true">
+
+  <ion-card>
+
+    <video class="videoCenter" width="320" height="240" controls>
+      <source src="./assets/video/vid_003.mp4" type="video/mp4">
+    </video>
+
     <ion-card-header>
-      <ion-card-title>Caso confirmado no TI</ion-card-title>
-      <!-- <ion-card-subtitle>23 de janeiro às 20:00h</ion-card-subtitle> -->
+      <ion-card-title>Gripe ou COVID-19?</ion-card-title>
     </ion-card-header>
-   
+
     <ion-card-content>
-      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
-      standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a
-      type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,
-    
+      Olá, amigos. A Interne está aqui novamente pra discutir esse tema tão polêmico e atual que é a infecção pelo
+      Coronavírus. Mas diversas pessoas apresentam a mesma dúvida: qual a diferença entre uma gripe comum, um resfriado
+      e uma infecção pelo Coronavírus? Calma, pessoal, e se liga nas dicas!
     </ion-card-content>
-   
+
   </ion-card>
 
-  <ion-card (click)="someFunction()">
- 
+  <ion-card>
+
+    <video class="videoCenter" width="320" height="240" controls>
+      <source src="./assets/video/vid_002.mp4" type="video/mp4">
+    </video>
+
+    <ion-card-header>
+      <ion-card-title>Pânico e o COVID-19</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      Olá, amigos. Pânico? Medo? Ficar em casa? Deixar de trabalhar? Calma! Muita coisa está acontecendo aqui em Recife,
+      tudo isso por causa do Coronavírus, mas a gente está aqui pra ajudar você e tirar suas dúvidas.
+    </ion-card-content>
+
+  </ion-card>
+
+  <ion-card>
+
+    <video class="videoCenter" width="320" height="240" controls>
+      <source src="./assets/video/vid_001.mp4" type="video/mp4">
+    </video>
+
+    <ion-card-header>
+      <ion-card-title>Carnaval e o COVID-19</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      Olá, amigos. O Carnaval chegou, e com ele diversas infecções são propensas a serem transmitidas nessa época
+      também. Como lidar com o Coronavírus nessa época?
+    </ion-card-content>
+
+  </ion-card>
+
+  <!-- <ion-card>
+
     <img src="https://ionicframework.com/docs/v3/dist/preview-app/www/assets/img/nin-live.png" />
     <ion-card-header>
-      <ion-card-title>Caso confirmado no TI</ion-card-title>
-      <!-- <ion-card-subtitle>23 de janeiro às 20:00h</ion-card-subtitle> -->
+      <ion-card-title>Carnaval e o COVID-19</ion-card-title>
+       <ion-card-subtitle>23 de janeiro às 20:00h</ion-card-subtitle> 
     </ion-card-header>
-   
-    <ion-card-content>
+
+     <ion-card-content>
       Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
       standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a
       type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,
-    
-    </ion-card-content>
-   
-  </ion-card>
+    </ion-card-content> 
+
+  </ion-card> -->
 
 </ion-content>

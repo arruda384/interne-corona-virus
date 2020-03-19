@@ -1,3 +1,3 @@
 export const API_CONFIG = {
-    baseUrl: "http://localhost:8080",
+    baseUrl: "http://sistemas.interne.com.br:8082",
 }
