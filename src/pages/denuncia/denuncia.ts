@@ -1,3 +1,4 @@
+
 export class Denuncia {
     nome: string;
     convenio: number;

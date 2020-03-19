@@ -18,10 +18,11 @@ import { AuthService } from '../services/auth.service';
 import { HttpClientModule } from '@angular/common/http';
 import { GooglePlus } from '@ionic-native/google-plus/ngx';
 import { StorageService } from '../services/storage.service';
-import { ErrorInterceptorProvider } from '../interceptors/error-interceptor';
+// import { ErrorInterceptorProvider } from '../interceptors/error-interceptor';
 import { AuthInterceptorProvider } from '../interceptors/auth-interceptor';
 import { RouteReuseStrategy } from '@angular/router';
 import { DenunciaPage } from '../pages/denuncia/denuncia.page';
+import { DenunciaService } from '../pages/denuncia/services/denuncia.service';
 
 
 
@@ -37,6 +38,7 @@ import { DenunciaPage } from '../pages/denuncia/denuncia.page';
     ModalContentPage,
     LoginPage,
     
+
   ],
   imports: [
     BrowserModule,
@@ -64,8 +66,10 @@ import { DenunciaPage } from '../pages/denuncia/denuncia.page';
     GooglePlus,
     AuthInterceptorProvider,
     AuthService,
-    ErrorInterceptorProvider,
+    // ErrorInterceptorProvider,
     StorageService,
+    DenunciaService
+
   ]
 })
 export class AppModule {}

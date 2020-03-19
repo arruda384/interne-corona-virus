@@ -48,6 +48,14 @@
         <ion-input type="number" formControlName="idade" placeholder="Quantos anos você tem?">
         </ion-input>
       </ion-item>
+
+      <ion-item>
+        <ion-label>
+          <ion-icon name="call"></ion-icon>
+        </ion-label>
+        <ion-input formControlName="telefone" placeholder="Qual seu telefone para contato?">
+        </ion-input>
+      </ion-item>
     
       <ion-item>
         <ion-label>
@@ -116,7 +124,7 @@
         </ion-select>
       </ion-item>
     
-      <button type="submit" class="buttonLog buttonLog2" ion-button>
+      <button type="submit"  (click)="submited()"  [disabled]="formDenuncia.invalid" class="buttonLog buttonLog2" ion-button>
         Salvar
       </button>
     
