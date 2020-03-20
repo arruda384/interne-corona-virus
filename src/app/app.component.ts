@@ -1,10 +1,12 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Platform } from 'ionic-angular';
+import { Platform, NavController } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { BackgroundMode } from '@ionic-native/background-mode/ngx';
 import { TabsPage } from '../pages/tabs/tabs';
 import { LoginPage } from '../pages/login/login.page';
+import { NativeStorage } from '@ionic-native/native-storage/ngx';
+import { Router } from '@angular/router';
 
 
 
@@ -30,6 +32,9 @@ export class MyApp implements OnInit, OnDestroy  {
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     private backgroundMode: BackgroundMode,
+    private nativeStorage: NativeStorage,
+    private router : Router,
+    
 
   ) {}
 
@@ -46,7 +51,7 @@ export class MyApp implements OnInit, OnDestroy  {
   ngOnDestroy() {
   }
 
-  initializeApp() {
+  // initializeApp() {
 
     //this.nav.setRoot(LoginPage);
     // this.platform.ready().then(() => {
@@ -56,6 +61,28 @@ export class MyApp implements OnInit, OnDestroy  {
     //   this.statusBar.styleDefault();
     //   this.splashScreen.hide();
     //   // this.router.navigateByUrl('app');
+    // });
+  // }
+
+  initializeApp() {
+    
+    // this.platform.ready().then(() => {
+    
+    //   //Here we will check if the user is already logged in
+    //   //because we don't want to ask users to log in each time they open the app
+    //   this.nativeStorage.getItem('google_user').then( data =>{
+    //     alert("native");
+    //     // user is previously logged and we have his data
+    //     // we will let him access the app
+    //     this.rootPage.setRoot(TabsPage);
+    //     this.splashScreen.hide();
+    //   }, error =>{
+
+    //     // alert(error || JSON.stringify);
+    //     this.router.navigate([LoginPage]);
+    //     this.splashScreen.hide();
+    //   });
+    //   this.statusBar.styleDefault();
     // });
   }
 

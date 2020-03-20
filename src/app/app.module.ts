@@ -1,6 +1,6 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { IonicApp, IonicModule, IonicErrorHandler} from 'ionic-angular';
+import { IonicApp, IonicModule, IonicErrorHandler, NavController, NavControllerBase} from 'ionic-angular';
 import { MyApp } from './app.component';
 
 
@@ -16,13 +16,16 @@ import { LoginPage } from '../pages/login/login.page';
 import { BackgroundMode } from '@ionic-native/background-mode/ngx';
 import { AuthService } from '../services/auth.service';
 import { HttpClientModule } from '@angular/common/http';
-import { GooglePlus } from '@ionic-native/google-plus/ngx';
+import { GooglePlus } from '@ionic-native/google-plus';
 import { StorageService } from '../services/storage.service';
 // import { ErrorInterceptorProvider } from '../interceptors/error-interceptor';
 import { AuthInterceptorProvider } from '../interceptors/auth-interceptor';
 import { RouteReuseStrategy } from '@angular/router';
 import { DenunciaPage } from '../pages/denuncia/denuncia.page';
 import { DenunciaService } from '../pages/denuncia/services/denuncia.service';
+import { NativeStorage } from '@ionic-native/native-storage/ngx';
+import { AppRoutingModule } from './app-routing.module';
+
 
 
 
@@ -43,7 +46,8 @@ import { DenunciaService } from '../pages/denuncia/services/denuncia.service';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -55,6 +59,7 @@ import { DenunciaService } from '../pages/denuncia/services/denuncia.service';
     BasicPage,
     ModalContentPage,
     LoginPage,
+
   ],
   providers: [
     StatusBar,
@@ -68,7 +73,10 @@ import { DenunciaService } from '../pages/denuncia/services/denuncia.service';
     AuthService,
     // ErrorInterceptorProvider,
     StorageService,
-    DenunciaService
+    DenunciaService,
+    NativeStorage,
+
+    
 
   ]
 })

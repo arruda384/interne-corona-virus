@@ -1,12 +1,12 @@
 // import { Injectable } from "@angular/core";
-// import { HttpEvent, HttpInterceptor, HttpHandler, HttpRequest, HTTP_INTERCEPTORS } from "@angular/common/http";
-// import { catchError} from 'rxjs/operators';
-// import { StorageService } from "../services/storage.service";
+// import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent, HTTP_INTERCEPTORS } from "@angular/common/http";
 // import { AlertController } from "ionic-angular";
-// import { Observable, throwError} from "rxjs";
+// import { StorageService } from "../services/storage.service";
+// import { Observable } from "rxjs/Observable";
+// import { throwError } from "rxjs";
+// import { of } from 'rxjs';
+// import { map, catchError } from 'rxjs/operators';
 
-
- 
  
 // @Injectable()
 // export class ErrorInterceptor implements HttpInterceptor{

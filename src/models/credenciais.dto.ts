@@ -1,6 +1,13 @@
 export interface CredenciaisDTO{
     matricula : string;
     password : string; 
-    funcionario: boolean;
+    token: 'SU5URVJORSNDT1JPTkFfVklSVVMj',
 }
+
+
+export interface UsuarioLogadoDTO{
+    matricula : string;
+    password : string; 
+}
+ 
  

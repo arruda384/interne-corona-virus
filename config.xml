@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="io.ionic.starter" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>Interne - Corona Vírus</name>
+<widget id="covid19.beta" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>Interne - CoronaVírus</name>
     <description>Qualquer coisa</description>
     <author email="rodrigo.araujo@interne.com.br" href="https://interne.com.br/">Interne Soluções em Saúde</author>
     <content src="index.html" />
@@ -104,8 +104,4 @@
     <plugin name="cordova-plugin-splashscreen" spec="5.0.2" />
     <plugin name="cordova-plugin-ionic-webview" spec="^4.0.0" />
     <plugin name="cordova-plugin-ionic-keyboard" spec="^2.0.5" />
-    <plugin name="cordova-plugin-googleplus" source="npm">
-        <variable name="REVERSED_CLIENT_ID" value="myreversedclientid" />
-        <variable name="WEB_APPLICATION_CLIENT_ID" value="mywebapplicationclientid" />
-    </plugin>
 </widget>

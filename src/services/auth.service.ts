@@ -1,5 +1,5 @@
 import { Injectable, EventEmitter } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { CredenciaisDTO } from '../models/credenciais.dto';
 import { API_CONFIG } from '../config/api.config';
 
@@ -14,13 +14,15 @@ export class AuthService{
     constructor(public http: HttpClient){}
 
     authenticate(creds: CredenciaisDTO){
-        // this.loginFuncionario.emit(true);
-      return this.http.post(API_CONFIG.baseUrl + '/interne_ad/public',
-        creds,
-        {
-            observe: 'response',
-            responseType: 'text',
-        })
+        let httpOptions = this.createOptions();
+        return this.http.post<any>(API_CONFIG.baseUrl + '/prevencao/auth-mobile', creds, httpOptions);
+    //     // this.loginFuncionario.emit(true);
+    //   return this.http.post(API_CONFIG.baseUrl + '/prevencao/auth-mobile',creds,
+    //     {
+    //         observe: 'response',
+    //         responseType: 'text',
+            
+    //     })
     }
 
         successfulLogin(authorizationValue : string){
@@ -29,5 +31,17 @@ export class AuthService{
 
         logout(){
         }
+
+
+        private createOptions() {
+            const httpOptions = {
+              headers: new HttpHeaders({
+                
+                'Content-Type': 'application/x-www-form-urlencoded',
+                 'Access-Control-Allow-Origin' : '*'
+              })
+            };
+            return httpOptions;
+          }
     
 }

@@ -30,7 +30,7 @@ export class DenunciaService {
     const httpOptions = {
       headers: new HttpHeaders({
         
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/x-www-form-urlencoded'
         // 'Access-Control-Allow-Origin' : '*'
       })
     };
@@ -38,3 +38,5 @@ export class DenunciaService {
   }
 
 }
+
+// "Content-type","application/x-www-form-urlencoded"
