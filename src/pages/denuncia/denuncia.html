@@ -1,7 +1,7 @@
 <ion-header>
   <ion-navbar>
     <ion-title style="text-align: center;">
-      Denúcia
+      Notificação
     </ion-title>
   </ion-navbar>
 </ion-header>
@@ -14,7 +14,7 @@
       <ion-label class="labelTitleForms">
         DADOS DO PACIENTE
       </ion-label>
-    
+
       <ion-item>
         <ion-label>
           <ion-icon name="contact"></ion-icon>
@@ -22,25 +22,27 @@
         <ion-input type="text" formControlName="nome" placeholder="Qual o seu nome?">
         </ion-input>
       </ion-item>
-    
+
       <ion-item>
         <ion-label>
           <ion-icon name="contacts"></ion-icon>
         </ion-label>
-        <ion-select okText="OK" cancelText="Cancelar" interface="popover" formControlName="sexo" placeholder="Qual o seu sexo?">
+        <ion-select okText="OK" cancelText="Cancelar" interface="popover" formControlName="sexo"
+          placeholder="Qual o seu sexo?">
           <ion-option value="M">Masculino</ion-option>
           <ion-option value="F">Feminino</ion-option>
         </ion-select>
       </ion-item>
-    
+
       <ion-item>
         <ion-label>
           <ion-icon name="calendar"></ion-icon>
         </ion-label>
-        <ion-datetime doneText="OK" cancelText="Cancelar" interface="popover" formControlName="dat_nascimento" placeholder="Quando você nasceu?">
+        <ion-datetime doneText="OK" cancelText="Cancelar" interface="popover" formControlName="dat_nascimento"
+          placeholder="Quando você nasceu?">
         </ion-datetime>
       </ion-item>
-    
+
       <ion-item>
         <ion-label>
           <ion-icon name="contact"></ion-icon>
@@ -56,22 +58,24 @@
         <ion-input formControlName="telefone" placeholder="Qual seu telefone para contato?">
         </ion-input>
       </ion-item>
-    
+
       <ion-item>
         <ion-label>
           <ion-icon name="copy"></ion-icon>
         </ion-label>
-        <ion-select okText="OK" cancelText="Cancelar" interface="popover" formControlName="convenio" placeholder="Qual o seu Convênio?">
+        <ion-select okText="OK" cancelText="Cancelar" interface="popover" formControlName="convenio"
+          placeholder="Qual o seu Convênio?">
           <ion-option value="amil">Amil</ion-option>
           <ion-option value="hapvida">HapVida</ion-option>
         </ion-select>
       </ion-item>
-    
+
       <ion-item>
         <ion-label>
           <ion-icon name="clipboard"></ion-icon>
         </ion-label>
-        <ion-select okText="OK" cancelText="Cancelar" interface="popover" formControlName="idprofissao" placeholder="Qual sua Profissão?">
+        <ion-select okText="OK" cancelText="Cancelar" interface="popover" formControlName="idprofissao"
+          placeholder="Qual sua Profissão?">
           <ion-option value='1'>Cuidador</ion-option>
           <ion-option value='2'>Enfermeiro</ion-option>
           <ion-option value='3'>Familiar</ion-option>
@@ -84,50 +88,119 @@
           <ion-option value='10'>Outros</ion-option>
         </ion-select>
       </ion-item>
-    
+
       <ion-label class="labelTitleForms">
         SINTOMAS
       </ion-label>
-    
+
+      <ion-label class="labelSmallTitleForms">
+        O QUE ESTÁ SENTINDO?
+      </ion-label>
+
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-item>
+              <ion-label>
+                <img src="./assets/imgs/febre.png" />
+                <ion-label class="sintomaTexto">Febre</ion-label>
+              </ion-label>
+              <ion-checkbox formControlName="ind_febre"></ion-checkbox>
+            </ion-item>
+          </ion-col>
+          <ion-col>
+            <ion-item>
+              <ion-label>
+                <img src="./assets/imgs/tosse-seca.png" />
+                <ion-label class="sintomaTexto">Tosse</ion-label>
+              </ion-label>
+              <ion-checkbox formControlName="ind_tosse"></ion-checkbox>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>
+            <ion-item>
+              <ion-label>
+                <img src="./assets/imgs/congestao-nasal.png" />
+                <ion-label class="sintomaTexto">Congestão Nasal</ion-label>
+              </ion-label>
+              <ion-checkbox formControlName="ind_congestao_nasal"></ion-checkbox>
+            </ion-item>
+          </ion-col>
+          <ion-col>
+            <ion-item>
+              <ion-label>
+                <img src="./assets/imgs/dores-no-corpo.png" />
+                <ion-label class="sintomaTexto">Dor na Garganta</ion-label>
+              </ion-label>
+              <ion-checkbox formControlName="ind_dor_garganta"></ion-checkbox>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>
+            <ion-item>
+              <ion-label>
+                <img src="./assets/imgs/cansaco.png" />
+                <ion-label class="sintomaTexto">Falta de Ar</ion-label>
+              </ion-label>
+              <ion-checkbox formControlName="ind_falta_ar"></ion-checkbox>
+            </ion-item>
+          </ion-col>
+          <ion-col>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <div>
+
+        <ion-label class="labelSmallTitleForms">
+          VOCÊ SENTE FALTA DE AR QUANDO ...
+        </ion-label>
+
+        <ion-item>
+          <ion-label>está caminhando</ion-label>
+          <ion-checkbox formControlName="ind_falta_ar_caminhada"></ion-checkbox>
+        </ion-item>
+        <ion-item>
+          <ion-label>está repousando/descansando</ion-label>
+          <ion-checkbox formControlName="ind_falta_ar_repouso"></ion-checkbox>
+        </ion-item>
+        <ion-item>
+          <ion-label>escova os dentes</ion-label>
+          <ion-checkbox formControlName="ind_escovar_dentes"></ion-checkbox>
+        </ion-item>
+        <ion-item>
+          <ion-label>penteia os cabelos</ion-label>
+          <ion-checkbox formControlName="ind_pentear_cabelos"></ion-checkbox>
+        </ion-item>
+        <ion-item>
+          <ion-label>toma banho sozinho</ion-label>
+          <ion-checkbox formControlName="ind_tomar_banho_sozinho"></ion-checkbox>
+        </ion-item>
+        <ion-item>
+          <ion-label>realiza outras atividades diárias</ion-label>
+          <ion-checkbox formControlName="ind_outros"></ion-checkbox>
+        </ion-item>
+
+      </div>
+
       <ion-item>
         <ion-label>
           <ion-icon name="calendar"></ion-icon>
         </ion-label>
-        <ion-datetime doneText="OK" cancelText="Cancelar" interface="popover" formControlName="dt_ini_sintomas" placeholder="Quando começaram os Sintomas?">
+        <ion-datetime doneText="OK" cancelText="Cancelar" interface="popover" formControlName="dt_ini_sintomas"
+          placeholder="Quando começaram os Sintomas?">
         </ion-datetime>
       </ion-item>
-    
-      <ion-item>
-        <ion-label>
-          <ion-icon name="list-box"></ion-icon>
-        </ion-label>
-        <ion-select multiple="true" interface="popover" formControlName="listaSintomas" placeholder="O que está sentindo?">
-          <ion-option>Febre</ion-option>
-          <ion-option>Tosse</ion-option>
-          <ion-option>Congestão Nasal</ion-option>
-          <ion-option>Dor de Garganta</ion-option>
-          <ion-option>Dificuldade Respiratória</ion-option>
-        </ion-select>
-      </ion-item>
-    
-      <ion-item>
-        <ion-label>
-          <ion-icon name="list-box"></ion-icon>
-        </ion-label>
-        <ion-select multiple="true" interface="popover" formControlName="listaFaltaDeAr" placeholder="Sinto falta de ar quando ...">
-          <ion-option value='1'>estou caminhando</ion-option>
-          <ion-option value='2'>estou repousando</ion-option>
-          <ion-option value='3'>escovo os dentes</ion-option>
-          <ion-option value='4'>penteio os cabelos</ion-option>
-          <ion-option value='5'>tomo banho sozinho</ion-option>
-          <ion-option value='6'>realizo outras atividades diárias</ion-option>
-        </ion-select>
-      </ion-item>
-    
-      <button type="submit"  (click)="submited()"  [disabled]="formDenuncia.invalid" class="buttonLog buttonLog2" ion-button>
+
+      <button type="submit" (click)="submited()"  [disabled]="formDenuncia.invalid" class="buttonLog buttonLog2" ion-button>
         Salvar
       </button>
-    
+
     </form>
   </ion-list>
 

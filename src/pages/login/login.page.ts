@@ -88,7 +88,7 @@ export class LoginPage {
        
         this.googlePlus.login({}).then((res)=>{
           this.loginDetails = res;
-          console.log(this.loginDetails);
+          console.log(res);
 
         }, (err)=>{
           console.log(err);

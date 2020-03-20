@@ -25,6 +25,18 @@
   margin-top: 6%;
 }
 
+.labelSmallTitleForms{
+  font-size: 14px;
+  font-weight: bold!important;
+  color: #2f2f2f;
+  font-family: "Source Sans Pro",Arial,Tahoma,sans-serif;
+  margin-bottom: 1%;
+  display: block;
+  margin-top: 4%;
+  margin-left: 6%;
+  margin-bottom: 4%;
+}
+
 .formLogin{
   margin-top:8%;
   margin-right: 6%;
@@ -60,6 +72,12 @@ ion-input, ion-datetime, ion-select{
   background-color:#ee1b24!important;
 }
 
+.sintomaTexto{
+  text-align:center;
+  color:#ee1b24!important;
+  font-weight: bold;
+  font-size: 11px;
+}
 
 .select-icon{
   margin-right: 5%;
@@ -87,6 +105,21 @@ item-md.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item
   border-style: solid;
   border-color:#ee1b24;
 }
+
+.item.item-md .checkbox-md{
+  margin:0;
+}
+
+.checkbox-md .checkbox-icon{
+  background-color: #fff;
+  border-color: #fff;
+}
+
+.checkbox-md .checkbox-checked .checkbox-inner {
+  border-style: solid;
+  border-color:#ee1b24;
+}
+
 
 .radio-md .radio-checked {
   border-style:solid;

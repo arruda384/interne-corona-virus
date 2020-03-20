@@ -3,6 +3,7 @@ import { NavController } from 'ionic-angular';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { DenunciaService } from "./services/denuncia.service";
 import { Denuncia } from './denuncia';
+import { TabsPage } from '../tabs/tabs';
 
 
 @Component({
@@ -18,9 +19,7 @@ export class DenunciaPage {
 
     this.formDenuncia = this.formBuilder.group({
 
-
-         /*
-      nome : ['', []],
+      nome: ['', []],
       convenio: ['', []],
       idprofissao: ['', []],
       telefone: ['', []],
@@ -30,34 +29,19 @@ export class DenunciaPage {
       idnotificacao: ['', []],
       matricula: ['', []],
       dt_notificacao: ['', []],
-      listaSintomas: ['', []],
-      dt_ini_sintomas: ['', [Validators.required]],
-      listaFaltaDeAr: ['', []], 
-      */
-      
-      nome : ['teste', []],
-      convenio: [1, []],
-      idprofissao: [1, []],
-      telefone: ['81818188888', []],
-      sexo: ['M', []],
-      idade: [25, []],
-      dat_nascimento: ['01/01/1980', []],
-      // idnotificacao: [1, []],
-      matricula: [5020, []],
-      dt_notificacao: ['', []],
-      listaSintomas: ['', []],
-      dt_ini_sintomas: ['Mar, 19,2020', []],
-      listaFaltaDeAr: ['', []],      
-
-   
-
-      // ind_febre: ['', [Validators.required]],
-      // ind_sint_gripais: ['', [Validators.required]],
-      // ind_falta_ar_caminhada: ['', [Validators.required]],
-      // ind_falta_ar_repouso: ['', [Validators.required]],
-      // ind_tosse: ['', [Validators.required]],
-      // ind_congestao_nasal: ['', [Validators.required]],
-      // ind_dor_garganta: ['', [Validators.required]],
+      dt_ini_sintomas: ['', []],
+      ind_febre: [false, []],
+      ind_sint_gripais: [false, []],
+      ind_falta_ar: [false, []],
+      ind_falta_ar_caminhada: [false, []],
+      ind_falta_ar_repouso: [false, []],
+      ind_tosse: [false, []],
+      ind_congestao_nasal: [false, []],
+      ind_dor_garganta: [false, []],
+      ind_escovar_dentes: [false, []],
+      ind_pentear_cabelos: [false, []],
+      ind_tomar_banho_sozinho: [false, []],
+      ind_outros: [false, []],
 
     });
 
@@ -65,16 +49,19 @@ export class DenunciaPage {
 
   submited() {
 
-    alert("submit");
-    
+    // alert("submit");
+
     let den = Object.assign({ 'token': 'SU5URVJORSNDT1JPTkFfVklSVVMj' }, this.formDenuncia.value);
     console.log(den);
     this.save(den);
   }
 
-  
 
-  erro(err: any) {    
+
+  erro(err: any) {
+    alert("err");
+
+    this.navCtrl.setRoot(TabsPage);
 
     console.log(err);
   }
@@ -87,19 +74,21 @@ export class DenunciaPage {
     // });
     // this.router.navigate(['/home/cadastro/perfil']);
 
+    alert("Susses");
+
     console.log(data);
   }
 
   save(den: Denuncia) {
-    alert("save");
+    // alert("save");
     const denComp = this;
-    
+
     this.denunciaService.inserir(den).subscribe(
       data => {
-        denComp.sucesso(data);      
+        denComp.sucesso(data);
       },
       err => {
-      denComp.erro(err);
+        denComp.erro(err);
       }
     )
   }
