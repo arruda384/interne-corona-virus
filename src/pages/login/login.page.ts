@@ -63,7 +63,6 @@ export class LoginPage {
       this.auth.authenticate(this.creds)
       .subscribe(response => {
         console.log(response);
-        this.auth.successfulLogin(response.headers.get('Authorization'));
         this.auth.loginFuncionario.emit((true));     
         this.navCtrl.setRoot(TabsPage);
       },

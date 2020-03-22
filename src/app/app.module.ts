@@ -25,6 +25,7 @@ import { DenunciaPage } from '../pages/denuncia/denuncia.page';
 import { DenunciaService } from '../pages/denuncia/services/denuncia.service';
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
 import { AppRoutingModule } from './app-routing.module';
+import { ComitePage } from '../pages/comite/comite';
 
 
 
@@ -40,7 +41,7 @@ import { AppRoutingModule } from './app-routing.module';
     BasicPage,
     ModalContentPage,
     LoginPage,
-    
+    ComitePage
 
   ],
   imports: [
@@ -59,6 +60,7 @@ import { AppRoutingModule } from './app-routing.module';
     BasicPage,
     ModalContentPage,
     LoginPage,
+    ComitePage
 
   ],
   providers: [
