@@ -76,16 +76,16 @@ export class LoginPage {
   async login() {
     const loading = await this.loadingController.create({
       content: 'Carregando...',
-      duration : 3000
+      duration: 3000
     });
 
     this.setCred(this.form.value);
     this.presentLoading(loading);
-    
+
     console.log(this.creds)
     this.auth.authenticate(this.creds)
       .subscribe(response => {
-        
+
         console.log(response);
         if (response.tipo === "ERROR") {
           var loading = this.loadingController.create({
@@ -114,56 +114,33 @@ export class LoginPage {
   async doGoogleLogin() {
 
     const loading = await this.loadingController.create({
-      content: 'Carregando...1'
+      content: 'Carregando...'
     });
     this.presentLoading(loading);
+    loading.dismiss();
 
     this.googlePlus.login({
       'scopes': '', // optional, space-separated list of scopes, If not included or empty, defaults to `profile` and `email`.
       'webClientId': '509828308772-6qffjv23h023fj4bpb9kgo08jm0vdqvo.apps.googleusercontent.com', // optional clientId of your Web application from Credentials settings of your project - On Android, this MUST be included to get an idToken. On iOS, it is not required.
       'offline': true // Optional, but requires the webClientId - if set to true the plugin will also return a serverAuthCode, which can be used to grant offline access to a non-Google server
     })
-      .then(user => {
+      .then(res => 
+       // console.log(JSON.stringify(res))
+       alert(JSON.stringify(res))
 
-        this.alertCtrl.create({
-          message: "carregando...2"
-        });
-        loading.dismiss();
-        this.auth.successfulLogin(user, 1)
+      )
+      .catch(err => 
+        alert(JSON.stringify(err)))
+       // console.error(err));
 
-        localStorage.setItem(STORAGE_KEYS.idade, (null));
-        localStorage.setItem(STORAGE_KEYS.matricula, ('0'));
-        localStorage.setItem(STORAGE_KEYS.nome, (user.displayName));
-        localStorage.setItem(STORAGE_KEYS.sexo, (null));
-        localStorage.setItem(STORAGE_KEYS.telefone, (null));
-        localStorage.setItem(STORAGE_KEYS.email, (user.displayEmail));
-        this.navCtrl.setRoot(TabsPage);
-
-        this.nativeStorage.setItem('google_user', {
-
-          // name: user.displayName,
-          // email: user.email,
-          // picture: user.imageUrl
-        })
-          .then(() => {
-            alert("linha 132");
-            this.navCtrl.setRoot(TabsPage);
-          }
-
-            , error => {
-              console.log(error);
-            })
-        alert("linha 139");
-        this.navCtrl.setRoot(TabsPage);
-        loading.dismiss();
-      }, err => {
-        console.log(err)
-        loading.dismiss();
-      });
-    alert("linha 144");
   }
+
   async presentLoading(loading) {
     return await loading.present();
+
   }
+
+
+
 }
 

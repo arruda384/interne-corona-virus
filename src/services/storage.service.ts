@@ -1,17 +1,15 @@
 import { Injectable } from '@angular/core';
-import { jsonpCallbackContext } from '@angular/common/http/src/module';
-import { LocalUser } from '../models/local_user';
 import { STORAGE_KEYS } from '../config/storage_keys.config';
 
 
 
 
 @Injectable()
-export class StorageService{
+export class StorageService {
 
-    getLocalUser(chave: string) : string{
+    getLocalUser(chave: string): string {
         let usr = localStorage.getItem(chave);
-        if (usr == null){
+        if (usr == null) {
             return null;
         }
         else {
@@ -20,10 +18,10 @@ export class StorageService{
 
     }
 
-    setLocalUser(obj : any){
+    setLocalUser(obj: any) {
 
 
-        if(obj.matricula !== '0'){
+        if (obj.matricula !== '0') {
 
             localStorage.setItem(STORAGE_KEYS.idade, (obj.idade));
             localStorage.setItem(STORAGE_KEYS.matricula, (obj.matricula));
@@ -33,13 +31,13 @@ export class StorageService{
             localStorage.setItem(STORAGE_KEYS.email, (null));
 
 
-        }else{
-        localStorage.setItem(STORAGE_KEYS.idade, (null));
-        localStorage.setItem(STORAGE_KEYS.matricula, ('0'));
-        localStorage.setItem(STORAGE_KEYS.nome, (obj.displayName));
-        localStorage.setItem(STORAGE_KEYS.sexo, (null));
-        localStorage.setItem(STORAGE_KEYS.telefone, (null));
-        localStorage.setItem(STORAGE_KEYS.email, (obj.displayEmail));
+        } else {
+            localStorage.setItem(STORAGE_KEYS.idade, (null));
+            localStorage.setItem(STORAGE_KEYS.matricula, ('0'));
+            localStorage.setItem(STORAGE_KEYS.nome, (obj.displayName));
+            localStorage.setItem(STORAGE_KEYS.sexo, (null));
+            localStorage.setItem(STORAGE_KEYS.telefone, (null));
+            localStorage.setItem(STORAGE_KEYS.email, (obj.displayEmail));
 
         }
     }
