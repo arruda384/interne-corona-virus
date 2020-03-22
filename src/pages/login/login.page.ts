@@ -8,6 +8,8 @@ import { GooglePlus } from '@ionic-native/google-plus';
 import { Router } from '@angular/router';
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
 import { JsonPipe } from '@angular/common';
+import { LocalUser } from '../../models/local_user';
+import { StorageService } from '../../services/storage.service';
 // import { NativeStorage } from '@ionic-native/native-storage/ngx';
 
 
@@ -22,12 +24,15 @@ export class LoginPage {
   rootPage:any = TabsPage;
 
   creds : CredenciaisDTO = {
-    matricula: '5020',
+    matricula: 5020,
     password: '14041983',
     token: 'SU5URVJORSNDT1JPTkFfVklSVVMj'
 
 
   };
+
+  
+ 
 
   exibirForm = false;
   exibirLoginGogole = false;
@@ -35,7 +40,7 @@ export class LoginPage {
   
   constructor(public navCtrl: NavController, private formBuilder: FormBuilder,
     public loadingController: LoadingController, private nativeStorage: NativeStorage,
-    private router : Router, 
+    private router : Router, private storage : StorageService,
     private googlePlus: GooglePlus, private alertCtrl: AlertController,
     private auth: AuthService) 
     {
@@ -63,7 +68,8 @@ export class LoginPage {
       this.auth.authenticate(this.creds)
       .subscribe(response => {
         console.log(response);
-        this.auth.loginFuncionario.emit((true));     
+        this.auth.successfulLogin(response)
+         this.auth.loginFuncionario.emit((true));     
         this.navCtrl.setRoot(TabsPage);
       },
       error =>{

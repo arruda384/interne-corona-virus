@@ -1,5 +1,8 @@
 export interface LocalUser{
-    token: string;
-    email: string;
+    matricula: string;
+    nome: string;
+    telefone: string;
+    sexo: string;
+    idade: string;
     
 }

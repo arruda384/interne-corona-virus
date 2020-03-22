@@ -2,6 +2,8 @@ import { Injectable, EventEmitter } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { CredenciaisDTO } from '../models/credenciais.dto';
 import { API_CONFIG } from '../config/api.config';
+import { LocalUser } from '../models/local_user';
+import { StorageService } from './storage.service';
 
 
 
@@ -11,7 +13,7 @@ export class AuthService{
     loginFuncionario = new EventEmitter<boolean>();
 
 
-    constructor(public http: HttpClient){}
+    constructor(public http: HttpClient, private storage : StorageService){}
 
     authenticate(creds: CredenciaisDTO){
         // console.log(creds);
@@ -26,9 +28,16 @@ export class AuthService{
     //     })
     }
 
-        successfulLogin(authorizationValue : string){
-            let tok = authorizationValue.substring(7);
-                 }
+        successfulLogin(usuarioLogado : any){ // tipoLogin : 1 funcionario 2 google
+            let user : LocalUser = {
+                matricula: usuarioLogado.matricula,
+                nome: usuarioLogado.nome,
+                telefone: usuarioLogado.telefone,
+                sexo: usuarioLogado.sexo,
+                idade: usuarioLogado.idade
+            };
+            this.storage.setLocalUser(user);
+        }
 
         logout(){
         }

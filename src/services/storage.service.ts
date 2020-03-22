@@ -9,8 +9,8 @@ import { STORAGE_KEYS } from '../config/storage_keys.config';
 @Injectable()
 export class StorageService{
 
-    getLocalUser() : LocalUser{
-        let usr = localStorage.getItem(STORAGE_KEYS.localUser);
+    getLocalUser(chave: string) : string{
+        let usr = localStorage.getItem(chave);
         if (usr == null){
             return null;
         }
@@ -21,12 +21,14 @@ export class StorageService{
     }
 
     setLocalUser(obj : LocalUser){
-        if (obj == null){
-            localStorage.removeItem(STORAGE_KEYS.localUser);
-        }
-        else{
-            localStorage.setItem(STORAGE_KEYS.localUser, JSON.stringify(obj));
-        }
-
+             
+        localStorage.setItem(STORAGE_KEYS.idade, (obj.idade));
+        localStorage.setItem(STORAGE_KEYS.matricula, (obj.matricula));
+        localStorage.setItem(STORAGE_KEYS.nome, (obj.nome));
+        localStorage.setItem(STORAGE_KEYS.sexo, (obj.sexo));
+        localStorage.setItem(STORAGE_KEYS.telefone, (obj.telefone));
+        console.log(localStorage);
+        console.log(obj);
     }
+
 }

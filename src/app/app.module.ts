@@ -19,7 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { GooglePlus } from '@ionic-native/google-plus';
 import { StorageService } from '../services/storage.service';
 // import { ErrorInterceptorProvider } from '../interceptors/error-interceptor';
-import { AuthInterceptorProvider } from '../interceptors/auth-interceptor';
+// import { AuthInterceptorProvider } from '../interceptors/auth-interceptor';
 import { RouteReuseStrategy } from '@angular/router';
 import { DenunciaPage } from '../pages/denuncia/denuncia.page';
 import { DenunciaService } from '../pages/denuncia/services/denuncia.service';
@@ -71,7 +71,7 @@ import { ComitePage } from '../pages/comite/comite';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     // { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     GooglePlus,
-    AuthInterceptorProvider,
+    // AuthInterceptorProvider,
     AuthService,
     // ErrorInterceptorProvider,
     StorageService,

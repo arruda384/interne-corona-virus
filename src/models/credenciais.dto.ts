@@ -1,5 +1,5 @@
 export interface CredenciaisDTO{
-    matricula : string;
+    matricula : number;
     password : string; 
     token: 'SU5URVJORSNDT1JPTkFfVklSVVMj',
 }

@@ -65,6 +65,18 @@ export class MyApp implements OnInit, OnDestroy  {
   // }
 
   initializeApp() {
+
+    this.platform.ready().then(()=> {
+      alert(localStorage.getItem("nome"));
+      if(localStorage.getItem("matricula")){
+        // this.router.navigate([TabsPage]);
+        this.rootPage = TabsPage;
+
+      }else{
+        this.rootPage = LoginPage;
+      }
+    }
+    )
     
     // this.platform.ready().then(() => {
     

@@ -1,6 +1,9 @@
 export const STORAGE_KEYS = {
 
-    localUser : "localUser"
-  
+    matricula: "matricula",
+    nome: "nome",
+    telefone: "telefone",
+    sexo: "sexo",
+    idade: "idade" 
   
   }

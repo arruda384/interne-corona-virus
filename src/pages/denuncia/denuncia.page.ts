@@ -1,9 +1,10 @@
-import { Component, NgModule } from '@angular/core';
+import { Component, NgModule, OnInit } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { DenunciaService } from "./services/denuncia.service";
 import { Denuncia } from './denuncia';
 import { TabsPage } from '../tabs/tabs';
+import { StorageService } from '../../services/storage.service';
 
 
 @Component({
@@ -11,11 +12,12 @@ import { TabsPage } from '../tabs/tabs';
   templateUrl: 'denuncia.html'
 })
 
-export class DenunciaPage {
+export class DenunciaPage implements OnInit{
 
   formDenuncia: FormGroup;
+  teste: string;
 
-  constructor(public navCtrl: NavController, private formBuilder: FormBuilder, private denunciaService: DenunciaService) {
+  constructor(private storage: StorageService, public navCtrl: NavController, private formBuilder: FormBuilder, private denunciaService: DenunciaService) {
 
     this.formDenuncia = this.formBuilder.group({
 
@@ -45,6 +47,10 @@ export class DenunciaPage {
 
     });
 
+  }
+
+  ngOnInit(){
+    this.teste = localStorage.getItem("nome");
   }
 
   submited() {
