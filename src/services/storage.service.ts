@@ -20,15 +20,28 @@ export class StorageService{
 
     }
 
-    setLocalUser(obj : LocalUser){
-             
-        localStorage.setItem(STORAGE_KEYS.idade, (obj.idade));
-        localStorage.setItem(STORAGE_KEYS.matricula, (obj.matricula));
-        localStorage.setItem(STORAGE_KEYS.nome, (obj.nome));
-        localStorage.setItem(STORAGE_KEYS.sexo, (obj.sexo));
-        localStorage.setItem(STORAGE_KEYS.telefone, (obj.telefone));
-        console.log(localStorage);
-        console.log(obj);
+    setLocalUser(obj : any){
+
+
+        if(obj.matricula !== '0'){
+
+            localStorage.setItem(STORAGE_KEYS.idade, (obj.idade));
+            localStorage.setItem(STORAGE_KEYS.matricula, (obj.matricula));
+            localStorage.setItem(STORAGE_KEYS.nome, (obj.nome));
+            localStorage.setItem(STORAGE_KEYS.sexo, (obj.sexo));
+            localStorage.setItem(STORAGE_KEYS.telefone, (obj.telefone));
+            localStorage.setItem(STORAGE_KEYS.email, (null));
+
+
+        }else{
+        localStorage.setItem(STORAGE_KEYS.idade, (null));
+        localStorage.setItem(STORAGE_KEYS.matricula, ('0'));
+        localStorage.setItem(STORAGE_KEYS.nome, (obj.displayName));
+        localStorage.setItem(STORAGE_KEYS.sexo, (null));
+        localStorage.setItem(STORAGE_KEYS.telefone, (null));
+        localStorage.setItem(STORAGE_KEYS.email, (obj.displayEmail));
+
+        }
     }
 
 }

@@ -15,7 +15,7 @@ import { StorageService } from '../../services/storage.service';
 export class DenunciaPage implements OnInit{
 
   formDenuncia: FormGroup;
-  teste: string;
+  funcionario : boolean;
 
   constructor(private storage: StorageService, public navCtrl: NavController, private formBuilder: FormBuilder, private denunciaService: DenunciaService) {
 
@@ -50,13 +50,15 @@ export class DenunciaPage implements OnInit{
   }
 
   ngOnInit(){
-    this.teste = localStorage.getItem("nome");
+    if(localStorage.getItem("matricula") === "0" || localStorage.getItem("matricula") === undefined ){
+
+      this.funcionario = false;
+    }else{
+      this.funcionario = true;
+    }
   }
 
   submited() {
-
-    // alert("submit");
-
     let den = Object.assign({ 'token': 'SU5URVJORSNDT1JPTkFfVklSVVMj' }, this.formDenuncia.value);
     console.log(den);
     this.save(den);
@@ -66,9 +68,7 @@ export class DenunciaPage implements OnInit{
 
   erro(err: any) {
     alert("err");
-
     this.navCtrl.setRoot(TabsPage);
-
     console.log(err);
   }
 

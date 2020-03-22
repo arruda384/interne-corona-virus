@@ -6,3 +6,10 @@ export interface LocalUser{
     idade: string;
     
 }
+
+export interface GoogleUser{
+    matricula: string;
+    nome: string;
+    email: string;
+    
+}

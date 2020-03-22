@@ -12,7 +12,7 @@ import { ComitePage } from '../comite/comite';
 @Component({
   templateUrl: 'tabs.html'
 })
-export class TabsPage  implements OnChanges {
+export class TabsPage  implements OnInit {
 
   tab1Root = HomePage;
   tab2Root = PrevencaoPage;
@@ -27,11 +27,15 @@ export class TabsPage  implements OnChanges {
    
 
   }
+  ngOnInit(): void {
+    
+    if(localStorage.getItem("matricula") ==='0'){
+      this.funcionario = false;
 
-  ngOnChanges(){
-
-    alert("teste");
-      this.auth.loginFuncionario.subscribe(val =>  console.log(val) )
+    }else{
+      this.funcionario = true;
+    }
+    
+  }
 
   }
-}
