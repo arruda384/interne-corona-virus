@@ -19,8 +19,23 @@
         <ion-label>
           <ion-icon name="contact"></ion-icon>
         </ion-label>
-        <ion-input type="text" formControlName="nome" placeholder="Qual o seu nome?">
+        <ion-input type="text" formControlName="nome" placeholder="Qual o seu nome?">          
         </ion-input>
+
+        <div *ngIf="f.nome.invalid && (f.nome.dirty || f.nome.touched)"
+              class="alert alert-danger">
+              <p *ngIf="f.nome.errors.required">
+                Nome é obrigatório.
+              </p>
+              <p *ngIf="f.nome.errors.minlength">
+                Nome deve ter no mínimo 3 caracters.
+              </p>
+
+              <p *ngIf="f.nome.errors.maxlength">
+                Nome deve ter no máximo 250 caracters.
+              </p>
+
+            </div>
       </ion-item>
 
       <ion-item>
@@ -117,7 +132,7 @@
                 <img src="./assets/imgs/tosse-seca.png" />
                 <ion-label class="sintomaTexto">Tosse</ion-label>
               </ion-label>
-              <ion-checkbox formControlName="ind_tosse"></ion-checkbox>
+              <ion-checkbox  type="ion-checkbox"  formControlName="ind_tosse"></ion-checkbox>
             </ion-item>
           </ion-col>
         </ion-row>

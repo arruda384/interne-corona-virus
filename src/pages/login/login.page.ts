@@ -69,11 +69,11 @@ export class LoginPage {
       password: form.password,
       token: 'SU5URVJORSNDT1JPTkFfVklSVVMj'
     };
-
-
   }
 
   async login() {
+    this.navCtrl.setRoot(TabsPage);
+
     const loading = await this.loadingController.create({
       content: 'Carregando...',
       duration: 3000
@@ -112,35 +112,60 @@ export class LoginPage {
   }
 
   async doGoogleLogin() {
-
     const loading = await this.loadingController.create({
-      content: 'Carregando...'
+      content: 'Please wait...'
     });
+
     this.presentLoading(loading);
-    loading.dismiss();
 
     this.googlePlus.login({
       'scopes': '', // optional, space-separated list of scopes, If not included or empty, defaults to `profile` and `email`.
       'webClientId': '509828308772-6qffjv23h023fj4bpb9kgo08jm0vdqvo.apps.googleusercontent.com', // optional clientId of your Web application from Credentials settings of your project - On Android, this MUST be included to get an idToken. On iOS, it is not required.
       'offline': true // Optional, but requires the webClientId - if set to true the plugin will also return a serverAuthCode, which can be used to grant offline access to a non-Google server
     })
-      .then(res => 
-       // console.log(JSON.stringify(res))
-       alert(JSON.stringify(res))
+      .then(user => {
+      //  alert(JSON.stringify(user));
+      //  alert(JSON.stringify(user.displayName));
+      //  alert(JSON.stringify(user.email));
+      //  alert(JSON.stringify(user.displayEmail));
 
-      )
-      .catch(err => 
-        alert(JSON.stringify(err)))
-       // console.error(err));
+        // this.nativeStorage.setItem('google_user', {
+        //   name: user.displayName,
+        //   email: user.email,
+        //   picture: user.imageUrl
+        // })
+        //   .then(() => {
+        //     alert("linha 137");
+        //     this.navCtrl.setRoot(TabsPage);
+        //   }, error => {
+        //     console.log(error);
+        //   })
 
+        alert("linha 125");
+        // this.navCtrl.setRoot(TabsPage);
+        // this.auth.successfulLogin(user, 2);
+
+        localStorage.setItem(STORAGE_KEYS.idade, (null));
+        localStorage.setItem(STORAGE_KEYS.matricula, ('0'));
+        localStorage.setItem(STORAGE_KEYS.nome, (user.displayName));
+        localStorage.setItem(STORAGE_KEYS.sexo, (null));
+        localStorage.setItem(STORAGE_KEYS.telefone, (null));
+        localStorage.setItem(STORAGE_KEYS.email, (user.email));
+        this.navCtrl.setRoot(TabsPage);
+        loading.dismiss();
+        this.navCtrl.setRoot(TabsPage);
+        alert("linha 143");
+
+      }, err => {
+        console.log(err)
+        loading.dismiss();
+      }
+      );
+      
+      // alert("164 loginpg");
   }
 
   async presentLoading(loading) {
     return await loading.present();
-
   }
-
-
-
 }
-

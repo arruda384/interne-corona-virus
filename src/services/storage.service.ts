@@ -20,7 +20,7 @@ export class StorageService {
 
     setLocalUser(obj: any) {
 
-
+        
         if (obj.matricula !== '0') {
 
             localStorage.setItem(STORAGE_KEYS.idade, (obj.idade));
@@ -32,6 +32,8 @@ export class StorageService {
 
 
         } else {
+
+            alert("Usuario google");
             localStorage.setItem(STORAGE_KEYS.idade, (null));
             localStorage.setItem(STORAGE_KEYS.matricula, ('0'));
             localStorage.setItem(STORAGE_KEYS.nome, (obj.displayName));

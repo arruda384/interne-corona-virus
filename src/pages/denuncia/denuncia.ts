@@ -11,14 +11,20 @@ export class Denuncia {
     matricula: number;
     dt_notificacao: Date;
     dt_ini_sintomas: Date;
-    ind_febre: string;
-    ind_sint_gripais: string;
-    ind_falta_ar_caminhada: string;
-    ind_falta_ar_repouso: string;
-    ind_tosse: string;
-    ind_congestao_nasal: string;
-    ind_dor_garganta: string;
+    ind_febre: boolean;
+    ind_sint_gripais: boolean;
+    ind_falta_ar_caminhada: boolean;
+    ind_falta_ar_repouso: boolean;
+    ind_tosse: boolean;
+    ind_congestao_nasal: boolean;
+    ind_dor_garganta: boolean;
     token: string;
+    ind_escovar_dentes : boolean;
+    ind_pentear_cabelos: boolean;
+    ind_tomar_banho_sozinho: boolean;
+    ind_outros: boolean;
+    ind_falta_ar : boolean;
+    ind_subir_escada: boolean;
 
     constructor(){
         
@@ -41,6 +47,14 @@ export class Denuncia {
         this.ind_congestao_nasal= null;
         this.ind_dor_garganta= null; 
         this.token= 'SU5URVJORSNDT1JPTkFfVklSVVMj';
+        this.ind_escovar_dentes = null;
+        this.ind_pentear_cabelos = null;
+        this.ind_tomar_banho_sozinho = null;
+        this.ind_outros = null;
+        this.ind_falta_ar = null;
+        this.ind_subir_escada = null;
+        
     }
 
 }
+
