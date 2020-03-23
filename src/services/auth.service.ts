@@ -21,12 +21,11 @@ export class AuthService {
   }
 
   successfulLogin(usuarioLogado: any, tipoLogin: number) { // tipoLogin : 1 funcionario 2 google
-    alert("Usuario tipo " + tipoLogin);
     if (tipoLogin == 1) {
 
       let user: LocalUser = {
         matricula: usuarioLogado.matricula,
-        nome: usuarioLogado.nome,
+        nome: usuarioLogado.nome, 
         telefone: usuarioLogado.telefone,
         sexo: usuarioLogado.sexo,
         idade: usuarioLogado.idade
@@ -34,8 +33,6 @@ export class AuthService {
       this.storage.setLocalUser(user);
 
     } else {
-
-      alert("Usuario google" + tipoLogin);
       let userGoogle: GoogleUser = {
         matricula: "0",
         nome: usuarioLogado.displayName,

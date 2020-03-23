@@ -18,17 +18,18 @@ export class TabsPage  implements OnInit {
   tab2Root = PrevencaoPage;
   tab3Root = DenunciaPage;
   tab4Root = ComitePage;
+  tabAtiva: number;
 
   funcionario: boolean;
 
 
   constructor(public auth: AuthService) {
 
-   
 
   }
   ngOnInit(): void {
     
+    this.tabAtiva = 1;
     if(localStorage.getItem("matricula") ==='0'){
       this.funcionario = false;
 

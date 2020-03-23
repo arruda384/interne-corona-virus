@@ -7,6 +7,7 @@ import { TabsPage } from '../tabs/tabs';
 import { StorageService } from '../../services/storage.service';
 import { OverlayPortal } from 'ionic-angular/umd/components/app/overlay-portal';
 import { DenunciaChecked } from './denunciaChecked';
+import { HomePage } from '../home/home';
 
 
 @Component({
@@ -91,14 +92,13 @@ export class DenunciaPage implements OnInit {
   }
 
   sucesso(data: any) {
-
     const loading = this.loadingController.create({
       content: data.message,
       duration: 3000
 
     });
     this.presentLoading(loading);
-    this.navCtrl.setRoot(TabsPage);
+    this.navCtrl.setRoot(HomePage);
 
   }
 

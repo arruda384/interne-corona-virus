@@ -96,6 +96,8 @@ export class LoginPage {
           this.auth.successfulLogin(response, 1)
           // this.auth.loginFuncionario.emit((true));     
           this.navCtrl.setRoot(TabsPage);
+
+
         }
       },
         error => {
@@ -122,24 +124,6 @@ export class LoginPage {
       'offline': true // Optional, but requires the webClientId - if set to true the plugin will also return a serverAuthCode, which can be used to grant offline access to a non-Google server
     })
       .then(user => {
-      //  alert(JSON.stringify(user));
-      //  alert(JSON.stringify(user.displayName));
-      //  alert(JSON.stringify(user.email));
-      //  alert(JSON.stringify(user.displayEmail));
-
-        // this.nativeStorage.setItem('google_user', {
-        //   name: user.displayName,
-        //   email: user.email,
-        //   picture: user.imageUrl
-        // })
-        //   .then(() => {
-        //     alert("linha 137");
-        //     this.navCtrl.setRoot(TabsPage);
-        //   }, error => {
-        //     console.log(error);
-        //   })
-
-        alert("linha 125");
         // this.navCtrl.setRoot(TabsPage);
         // this.auth.successfulLogin(user, 2);
 
@@ -149,10 +133,9 @@ export class LoginPage {
         localStorage.setItem(STORAGE_KEYS.sexo, (null));
         localStorage.setItem(STORAGE_KEYS.telefone, (null));
         localStorage.setItem(STORAGE_KEYS.email, (user.email));
-        this.navCtrl.setRoot(TabsPage);
         loading.dismiss();
         this.navCtrl.setRoot(TabsPage);
-        alert("linha 143");
+        // alert("linha 143");
 
       }, err => {
         console.log(err)
@@ -160,7 +143,6 @@ export class LoginPage {
       }
       );
       
-      // alert("164 loginpg");
   }
 
   async presentLoading(loading) {
