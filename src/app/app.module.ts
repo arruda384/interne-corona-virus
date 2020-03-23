@@ -29,9 +29,6 @@ import { ComitePage } from '../pages/comite/comite';
 import { NgxMaskIonicModule } from 'ngx-mask-ionic';
 
 
-
-
-
 @NgModule({
   declarations: [
     MyApp,
@@ -71,17 +68,11 @@ import { NgxMaskIonicModule } from 'ngx-mask-ionic';
     SplashScreen,
     BackgroundMode,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    // { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     GooglePlus,
-    // AuthInterceptorProvider,
     AuthService,
-    // ErrorInterceptorProvider,
     StorageService,
     DenunciaService,
     NativeStorage,
-
-    
-
   ]
 })
 export class AppModule {}

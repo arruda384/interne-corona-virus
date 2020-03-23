@@ -9,6 +9,33 @@
   <ion-card>
     <img src="./assets/imgs/lista_boletins.png" />
 
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Start Page</th>
+          <th scope="col">View</th>
+          <th scope="col">Download</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of pdfFiles">
+          <th scope="row">{{ item.name }}</th>
+          <td>{{ item.startPage }}</td>
+          <td>
+            <button type="button" class="btn btn-primary btn-sm" (click)="openDoc(item.path, item.startPage)">
+              View
+            </button>
+          </td>
+          <td>
+            <button type="button" class="btn btn-success btn-sm" (click)="downloadPdf(item.path, item.name)">
+              Save
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
     <ion-card>
       <a class="" href="./assets/boletim/boletim001.pdf" download="Boletim Nº1 - COVID19 ">
         <ion-grid>
