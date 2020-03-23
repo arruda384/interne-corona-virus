@@ -86,6 +86,7 @@ export class LoginPage {
 
         console.log(response);
         if (response.tipo === "ERROR") {
+          
           var loading = this.loadingController.create({
             content: response.message,
             duration: 6000
@@ -148,4 +149,5 @@ export class LoginPage {
   async presentLoading(loading) {
     return await loading.present();
   }
+  get f() { return this.form.controls; }
 }

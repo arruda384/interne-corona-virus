@@ -84,6 +84,23 @@ ion-input, ion-datetime, ion-select{
   position: relative;
 }
 
+.loading-md .spinner-crescent circle {
+  stroke: #ee1b24;
+}
+
+.loading-md .loading-wrapper {
+  border-radius: 2px;
+  max-width: 280px;
+  max-height: 90%;
+  color: #ee1b24;
+  font-weight: bold;
+  font-family: "Source Sans Pro",Arial,Tahoma,sans-serif;
+  background: #fafafa;
+  -webkit-box-shadow: 0 16px 20px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 16px 20px rgba(0, 0, 0, 0.4);
+  padding: 24px;
+}
+
 ion-icon,
 .select-md .select-icon .select-icon-inner{
   color:#ee1b24;

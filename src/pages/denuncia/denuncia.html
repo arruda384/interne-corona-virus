@@ -22,18 +22,17 @@
         <ion-input type="text" maxlength="250" formControlName="nome" placeholder="Qual o seu nome?">
         </ion-input>
       </ion-item>
+      
       <div *ngIf="f.nome.invalid && (f.nome.dirty || f.nome.touched)" class="alert alert-danger">
-        <p *ngIf="f.nome.errors.required">
-          Nome é obrigatório.
+        <p *ngIf="f.nome.errors.required" class="validationField">
+          Este campo é obrigatório.
         </p>
-        <p *ngIf="f.nome.errors.minlength">
-          Nome deve ter no mínimo 3 caracters.
+        <p *ngIf="f.nome.errors.minlength" class="validationField">
+          Este campo deve ter no mínimo 3 caracteres.
         </p>
-
-        <p *ngIf="f.nome.errors.maxlength">
-          Nome deve ter no máximo 250 caracters.
+        <p *ngIf="f.nome.errors.maxlength" class="validationField">
+          Este campo deve ter no máximo 250 caracteres.
         </p>
-
       </div>
 
       <ion-item>
@@ -47,8 +46,8 @@
         </ion-select>
       </ion-item>
       <div *ngIf="f.sexo.invalid && (f.sexo.dirty || f.sexo.touched)" class="alert alert-danger">
-        <p *ngIf="f.sexo.errors.required">
-          Campo é obrigatório.
+        <p *ngIf="f.sexo.errors.required" class="validationField">
+          Este campo é obrigatório.
         </p>
 
       </div>
@@ -65,8 +64,8 @@
 
       <div *ngIf="f.dat_nascimento.invalid && (f.dat_nascimento.dirty || f.dat_nascimento.touched)"
         class="alert alert-danger">
-        <p *ngIf="f.dat_nascimento.errors.required">
-          Campo é obrigatório.
+        <p *ngIf="f.dat_nascimento.errors.required" class="validationField">
+          Este campo é obrigatório.
         </p>
       </div>
 
@@ -79,8 +78,8 @@
       </ion-item>
 
       <div *ngIf="f.idade.invalid && (f.idade.dirty || f.idade.touched)" class="alert alert-danger">
-        <p *ngIf="f.idade.errors.required">
-          Campo é obrigatório.
+        <p *ngIf="f.idade.errors.required" class="validationField">
+          Este campo é obrigatório.
         </p>
       </div>
 
@@ -94,11 +93,11 @@
       </ion-item>
 
       <div *ngIf="f.telefone.invalid && (f.telefone.dirty || f.telefone.touched)" class="alert alert-danger">
-        <p *ngIf="f.telefone.errors.required">
-          Campo é obrigatório.
+        <p *ngIf="f.telefone.errors.required" class="validationField">
+          Este campo é obrigatório.
         </p>
-        <p *ngIf="f.telefone.errors.minlength">
-          Campo 11 dígitos.
+        <p *ngIf="f.telefone.errors.minlength" class="validationField">
+          Este campo deve ter no mínimo 11 caracteres.
         </p>
       </div>
 
@@ -111,11 +110,11 @@
       </ion-item>
 
       <div *ngIf="f.convenio.invalid && (f.convenio.dirty || f.convenio.touched)" class="alert alert-danger">
-        <p *ngIf="f.convenio.errors.required">
-          Campo é obrigatório.
+        <p *ngIf="f.convenio.errors.required" class="validationField">
+          Este campo é obrigatório.
         </p>
-        <p *ngIf="f.convenio.errors.maxlength">
-          No máximo 250 caracteres.
+        <p *ngIf="f.convenio.errors.maxlength" class="validationField">
+          Este campo deve ter no mínimo 250 caracteres.
         </p>
       </div>
 
@@ -139,8 +138,8 @@
       </ion-item>
 
       <div *ngIf="f.idprofissao.invalid && (f.idprofissao.dirty || f.idprofissao.touched)" class="alert alert-danger">
-        <p *ngIf="f.idprofissao.errors.required">
-          Campo é obrigatório.
+        <p *ngIf="f.idprofissao.errors.required" class="validationField">
+          Este campo é obrigatório.
         </p>
       </div>
 
@@ -252,6 +251,12 @@
           placeholder="Quando começaram os Sintomas?">
         </ion-datetime>
       </ion-item>
+
+      <div *ngIf="f.dt_ini_sintomas.invalid && (f.dt_ini_sintomas.dirty || f.dt_ini_sintomas.touched)" class="alert alert-danger">
+        <p *ngIf="f.dt_ini_sintomas.errors.required" class="validationField">
+          Este campo é obrigatório.
+        </p>
+      </div>
 
       <button type="submit" (click)="submited()" [disabled]="formDenuncia.invalid" class="buttonLog buttonLog2"
         ion-button>
