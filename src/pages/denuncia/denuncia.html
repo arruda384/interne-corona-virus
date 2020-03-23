@@ -1,7 +1,7 @@
 <ion-header>
   <ion-navbar>
     <ion-title style="text-align: center;">
-      Notificação {{teste}}
+      Notificação
     </ion-title>
   </ion-navbar>
 </ion-header>
@@ -19,24 +19,23 @@
         <ion-label>
           <ion-icon name="contact"></ion-icon>
         </ion-label>
-        <ion-input type="text" formControlName="nome" placeholder="Qual o seu nome?">          
+        <ion-input type="text" formControlName="nome" placeholder="Qual o seu nome?">
         </ion-input>
-
-        <div *ngIf="f.nome.invalid && (f.nome.dirty || f.nome.touched)"
-              class="alert alert-danger">
-              <p *ngIf="f.nome.errors.required">
-                Nome é obrigatório.
-              </p>
-              <p *ngIf="f.nome.errors.minlength">
-                Nome deve ter no mínimo 3 caracters.
-              </p>
-
-              <p *ngIf="f.nome.errors.maxlength">
-                Nome deve ter no máximo 250 caracters.
-              </p>
-
-            </div>
       </ion-item>
+      <div *ngIf="f.nome.invalid && (f.nome.dirty || f.nome.touched)"
+      class="alert alert-danger">
+      <p *ngIf="f.nome.errors.required">
+        Nome é obrigatório.
+      </p>
+      <p *ngIf="f.nome.errors.minlength">
+        Nome deve ter no mínimo 3 caracters.
+      </p>
+
+      <p *ngIf="f.nome.errors.maxlength">
+        Nome deve ter no máximo 250 caracters.
+      </p>
+
+    </div>
 
       <ion-item>
         <ion-label>
@@ -84,8 +83,8 @@
           <ion-option value="hapvida">HapVida</ion-option>
         </ion-select> -->
 
-        <ion-input  type="text" formControlName="convenio" placeholder="Qual o seu Convênio?">
-</ion-input>
+        <ion-input type="text" formControlName="convenio" placeholder="Qual o seu Convênio?">
+        </ion-input>
       </ion-item>
 
       <ion-item>
@@ -132,7 +131,7 @@
                 <img src="./assets/imgs/tosse-seca.png" />
                 <ion-label class="sintomaTexto">Tosse</ion-label>
               </ion-label>
-              <ion-checkbox  type="ion-checkbox"  formControlName="ind_tosse"></ion-checkbox>
+              <ion-checkbox type="ion-checkbox" formControlName="ind_tosse"></ion-checkbox>
             </ion-item>
           </ion-col>
         </ion-row>
@@ -215,7 +214,8 @@
         </ion-datetime>
       </ion-item>
 
-      <button type="submit" (click)="submited()"  [disabled]="formDenuncia.invalid" class="buttonLog buttonLog2" ion-button>
+      <button type="submit" (click)="submited()" [disabled]="formDenuncia.invalid" class="buttonLog buttonLog2"
+        ion-button>
         Salvar
       </button>
 
