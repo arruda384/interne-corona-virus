@@ -26,6 +26,7 @@ import { DenunciaService } from '../pages/denuncia/services/denuncia.service';
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
 import { AppRoutingModule } from './app-routing.module';
 import { ComitePage } from '../pages/comite/comite';
+import { NgxMaskIonicModule } from 'ngx-mask-ionic';
 
 
 
@@ -48,7 +49,8 @@ import { ComitePage } from '../pages/comite/comite';
     BrowserModule,
     IonicModule.forRoot(MyApp),
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgxMaskIonicModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [

@@ -35,6 +35,7 @@
     "ionic-angular": "3.9.9",
     "ionic-material": "^0.4.1",
     "ionicons": "3.0.0",
+    "ngx-mask-ionic": "^1.1.2",
     "rxjs": "^6.0.0",
     "rxjs-compat": "^6.5.4",
     "sw-toolbox": "3.6.0",

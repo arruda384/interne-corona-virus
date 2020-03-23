@@ -6,6 +6,7 @@ import { IonicModule } from 'ionic-angular';
 import { AuthService } from '../../services/auth.service';
 import { Routes, RouterModule } from '@angular/router';
 import { DenunciaPage } from './denuncia.page';
+import { NgxMaskIonicModule } from 'ngx-mask-ionic';
 
 const routes: Routes = [
   {
@@ -20,13 +21,16 @@ const routes: Routes = [
     ReactiveFormsModule,
     FormsModule,
     IonicModule,    
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    NgxMaskIonicModule.forRoot()
+
   ],
   declarations: [
     DenunciaPage
   ],
   providers: [
     AuthService
+    
   ]
 })
 export class DenunciaPageModule {}

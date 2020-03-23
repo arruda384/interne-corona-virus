@@ -1,5 +1,5 @@
 import { Component, NgModule, OnInit } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, LoadingController, Button } from 'ionic-angular';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { DenunciaService } from "./services/denuncia.service";
 import { Denuncia } from './denuncia';
@@ -18,24 +18,31 @@ export class DenunciaPage implements OnInit {
 
   formDenuncia: FormGroup;
   funcionario: boolean;
-  matriculaFuncionario : string;
-  denunciaChecked : DenunciaChecked;
+  matriculaFuncionario: string;
+  denunciaChecked: DenunciaChecked;
+  exibirDiv: boolean = false;
 
-  constructor(private storage: StorageService, public navCtrl: NavController, private formBuilder: FormBuilder, private denunciaService: DenunciaService) {
+  constructor(
+    private storage: StorageService,
+    public navCtrl: NavController,
+    private formBuilder: FormBuilder,
+    private denunciaService: DenunciaService,
+    private loadingController: LoadingController
+  ) {
 
     this.formDenuncia = this.formBuilder.group({
 
-      nome: ['teste', [Validators.required, Validators.minLength(3)]],
-      convenio: ['teste', [Validators.required, Validators.minLength(3), Validators.maxLength(250)]],
-      idprofissao: ['4', []],
-      telefone: ['', []],
-      sexo: ['', []],
-      idade: ['', []],
-      dat_nascimento: ['', []],
-      idnotificacao: ['', []],
-      matricula: ['', []],
-      dt_notificacao: ['', []],
-      dt_ini_sintomas: ['', []],
+      nome: ['Marcel', [Validators.required, Validators.minLength(3)]],
+      convenio: ['Amil', [Validators.required, Validators.maxLength(250)]],
+      idprofissao: ['4', [Validators.required]],
+      telefone: ['', [Validators.minLength(10), Validators.required]],
+      sexo: ['M', [Validators.required]],
+      idade: [25, [Validators.required]],
+      dat_nascimento: ['', [Validators.required]],
+      // idnotificacao: ['', []],
+      // matricula: ['', []],
+      // dt_notificacao: ['', []],
+      dt_ini_sintomas: ['', [Validators.required]],
       ind_febre: [false, []],
       ind_sint_gripais: [false, []],
       ind_falta_ar: [false, []],
@@ -64,58 +71,73 @@ export class DenunciaPage implements OnInit {
   }
 
   submited() {
-    let den = Object.assign({ 'token': 'SU5URVJORSNDT1JPTkFfVklSVVMj' },                               
-                         { 'matricula': this.matriculaFuncionario}, 
-                          this.formDenuncia.value,);
+    let den = Object.assign({ 'token': 'SU5URVJORSNDT1JPTkFfVklSVVMj' },
+      { 'matricula': this.matriculaFuncionario },
+      this.formDenuncia.value
+
+    );
+
+
+    den.dat_nascimento = this.formatDat(den.dat_nascimento);
+    den.dt_ini_sintomas = this.formatDat(den.dt_ini_sintomas);
     this.save(den);
   }
 
 
 
   erro(err: any) {
-    alert("err");
-    this.navCtrl.setRoot(TabsPage);
+    alert(err.message);
     console.log(err);
   }
 
   sucesso(data: any) {
-    // this.toastr.success('', 'cadastro realizado com sucesso!', {
-    //   timeOut: 5000,
-    //   progressBar: true,
-    //   positionClass: 'toast-bottom-right'
-    // });
-    // this.router.navigate(['/home/cadastro/perfil']);
 
-    alert("Susses");
+    const loading = this.loadingController.create({
+      content: data.message,
+      duration: 3000
 
-    console.log(data);
+    });
+    this.presentLoading(loading);
+    this.navCtrl.setRoot(TabsPage);
+
+  }
+
+  formatDat(dat) {
+    const day = dat.slice(8, 11);
+    const month = dat.slice(5, 7);
+    const year = dat.slice(0, 4);
+    const result = day + "/" + month + "/" + year;
+    return result;
   }
 
   save(den: Denuncia) {
 
     this.denunciaChecked = new DenunciaChecked();
-   
-    const denComp = this;  
-    this.denunciaChecked.ind_febre = (den.ind_febre == true) ?  "S" : "N";
-    this.denunciaChecked.ind_congestao_nasal = (den.ind_congestao_nasal == true) ?  "S" : "N";
-    this.denunciaChecked.ind_dor_garganta = (den.ind_dor_garganta == true) ?  "S" : "N";
-    this.denunciaChecked.ind_escovar_dentes = (den.ind_escovar_dentes == true) ?  "S" : "N";
-    this.denunciaChecked.ind_falta_ar = (den.ind_falta_ar == true) ?  "S" : "N";
-    this.denunciaChecked.ind_falta_ar_caminhada = (den.ind_falta_ar_caminhada == true) ?  "S" : "N";
-    this.denunciaChecked.ind_falta_ar_repouso = (den.ind_falta_ar_repouso == true) ?  "S" : "N";
-    this.denunciaChecked.ind_outros = (den.ind_outros == true) ?  "S" : "N";
-    this.denunciaChecked.ind_pentear_cabelos = (den.ind_pentear_cabelos == true) ?  "S" : "N";
-    this.denunciaChecked.ind_sint_gripais = (den.ind_sint_gripais == true) ?  "S" : "N";
-    this.denunciaChecked.ind_subir_escada = (den.ind_subir_escada == true) ?  "S" : "N";
-    this.denunciaChecked.ind_tomar_banho_sozinho = (den.ind_tomar_banho_sozinho == true) ?  "S" : "N";
-    this.denunciaChecked.ind_tosse = (den.ind_tosse == true) ?  "S" : "N";
-   
-    console.log(this.denunciaChecked);
-    
-    this.denunciaService.inserir(den, this.denunciaChecked).subscribe(
-      data => {
-        denComp.sucesso(data);
 
+    const denComp = this;
+    this.denunciaChecked.ind_febre = (den.ind_febre == true) ? "S" : "N";
+    this.denunciaChecked.ind_congestao_nasal = (den.ind_congestao_nasal == true) ? "S" : "N";
+    this.denunciaChecked.ind_dor_garganta = (den.ind_dor_garganta == true) ? "S" : "N";
+    this.denunciaChecked.ind_escovar_dentes = (den.ind_escovar_dentes == true) ? "S" : "N";
+    this.denunciaChecked.ind_falta_ar = (den.ind_falta_ar == true) ? "S" : "N";
+    this.denunciaChecked.ind_falta_ar_caminhada = (den.ind_falta_ar_caminhada == true) ? "S" : "N";
+    this.denunciaChecked.ind_falta_ar_repouso = (den.ind_falta_ar_repouso == true) ? "S" : "N";
+    this.denunciaChecked.ind_outros = (den.ind_outros == true) ? "S" : "N";
+    this.denunciaChecked.ind_pentear_cabelos = (den.ind_pentear_cabelos == true) ? "S" : "N";
+    this.denunciaChecked.ind_sint_gripais = (den.ind_sint_gripais == true) ? "S" : "N";
+    this.denunciaChecked.ind_subir_escada = (den.ind_subir_escada == true) ? "S" : "N";
+    this.denunciaChecked.ind_tomar_banho_sozinho = (den.ind_tomar_banho_sozinho == true) ? "S" : "N";
+    this.denunciaChecked.ind_tosse = (den.ind_tosse == true) ? "S" : "N";
+
+
+    this.denunciaService.inserir(den, this.denunciaChecked).subscribe(
+      response => {
+
+        if (response.tipo === "ERROR") {
+          this.erro(response);
+        } else if (response.tipo === "INFO") {
+          this.sucesso(response)
+        }
       },
       err => {
 
@@ -126,6 +148,21 @@ export class DenunciaPage implements OnInit {
   }
   get f() { return this.formDenuncia.controls; }
 
+  exibirDivAr(val) {
+    this.exibirDiv = val.checked;
+    if (!val.checked) {
+      this.formDenuncia.get('ind_falta_ar_caminhada').setValue(false)
+      this.formDenuncia.get('ind_falta_ar_repouso').setValue(false)
+      this.formDenuncia.get('ind_escovar_dentes').setValue(false)
+      this.formDenuncia.get('ind_pentear_cabelos').setValue(false)
+      this.formDenuncia.get('ind_tomar_banho_sozinho').setValue(false)
+      this.formDenuncia.get('ind_outros').setValue(false)
 
+    }
+
+  }
+
+  async presentLoading(loading) {
+    return await loading.present();
+  }
 }
-

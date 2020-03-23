@@ -72,8 +72,6 @@ export class LoginPage {
   }
 
   async login() {
-    this.navCtrl.setRoot(TabsPage);
-
     const loading = await this.loadingController.create({
       content: 'Carregando...',
       duration: 3000
