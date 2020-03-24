@@ -72,6 +72,7 @@ export class LoginPage {
   }
 
   async login() {
+    this.navCtrl.setRoot(TabsPage); //apagar
     const loading = await this.loadingController.create({
       content: 'Carregando...',
       duration: 3000
@@ -79,6 +80,14 @@ export class LoginPage {
 
     this.setCred(this.form.value);
     this.presentLoading(loading);
+
+    
+
+
+
+    // alert(this.formatDat(this.form.value.password));
+    // localStorage.setItem('dat_nascimento', this.form.value.password);
+
 
     console.log(this.creds)
     this.auth.authenticate(this.creds)
@@ -111,6 +120,14 @@ export class LoginPage {
     //this.navCtrl.setRoot(TabsPage);
 
   }
+
+  formatDat(dat) {
+      const day = dat.slice(0, 2);
+      const month = dat.slice(2,4);
+      const year = dat.slice(4, 8);
+      const result = day + "/" + month + "/" + year;
+      return result;
+    }
 
   async doGoogleLogin() {
     const loading = await this.loadingController.create({

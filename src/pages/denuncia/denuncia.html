@@ -8,11 +8,36 @@
 
 <ion-content>
 
+  <ion-label class="labelTitleForms">
+    TIPO DO PACIENTE
+  </ion-label>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-card (click)="setCamposPaciente(1)" class="buttonLogin backgroundRed roundedCard">
+          <img src="./assets/imgs/interne.png" />
+        </ion-card>
+        <ion-label class="labelSmallTitleForms textCenter">
+          COLABORADOR
+        </ion-label>
+      </ion-col>
+      <ion-col>
+        <ion-card (click)="setCamposPaciente(2)" class="buttonLogin backgroundRed roundedCard">
+          <img src="./assets/imgs/interne.png" />
+        </ion-card>
+        <ion-label class="labelSmallTitleForms textCenter">
+          PACIENTE COMUM
+        </ion-label>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
   <ion-list>
     <form [formGroup]="formDenuncia">
-
+		 <div *ngIf="exibirDivPaciente">
       <ion-label class="labelTitleForms">
-        DADOS DO PACIENTE
+        INFORMAÇÕES PESSOAIS
       </ion-label>
 
       <ion-item>
@@ -22,7 +47,7 @@
         <ion-input type="text" maxlength="250" formControlName="nome" placeholder="Qual o seu nome?">
         </ion-input>
       </ion-item>
-      
+
       <div *ngIf="f.nome.invalid && (f.nome.dirty || f.nome.touched)" class="alert alert-danger">
         <p *ngIf="f.nome.errors.required" class="validationField">
           Este campo é obrigatório.
@@ -124,16 +149,18 @@
         </ion-label>
         <ion-select okText="OK" cancelText="Cancelar" interface="popover" formControlName="idprofissao"
           placeholder="Qual sua Profissão?">
-          <ion-option value='1'>Cuidador</ion-option>
+          <ion-option value='1'>Administrativo</ion-option>
           <ion-option value='2'>Enfermeiro</ion-option>
           <ion-option value='3'>Familiar</ion-option>
           <ion-option value='4'>Fisioterapeuta</ion-option>
           <ion-option value='5'>Fonoterapeuta</ion-option>
           <ion-option value='6'>Médico</ion-option>
           <ion-option value='7'>Nutricionista</ion-option>
-          <ion-option value='8'>Téc. em Enfermagem</ion-option>
-          <ion-option value='9'>T.O.</ion-option>
-          <ion-option value='10'>Outros</ion-option>
+          <ion-option value='8'>T.O.</ion-option>
+          <ion-option value='9'>Outros</ion-option>
+          <ion-option value='10'>Téc. em Enfermagem</ion-option>
+          <ion-option value='11'>Cuidador</ion-option>
+          <ion-option value='12'>Paciente</ion-option>
         </ion-select>
       </ion-item>
 
@@ -252,7 +279,8 @@
         </ion-datetime>
       </ion-item>
 
-      <div *ngIf="f.dt_ini_sintomas.invalid && (f.dt_ini_sintomas.dirty || f.dt_ini_sintomas.touched)" class="alert alert-danger">
+      <div *ngIf="f.dt_ini_sintomas.invalid && (f.dt_ini_sintomas.dirty || f.dt_ini_sintomas.touched)"
+        class="alert alert-danger">
         <p *ngIf="f.dt_ini_sintomas.errors.required" class="validationField">
           Este campo é obrigatório.
         </p>
@@ -262,7 +290,7 @@
         ion-button>
         Salvar
       </button>
-
+		</div>
     </form>
   </ion-list>
 

@@ -28,7 +28,9 @@ export class AuthService {
         nome: usuarioLogado.nome, 
         telefone: usuarioLogado.telefone,
         sexo: usuarioLogado.sexo,
-        idade: usuarioLogado.idade
+        idade: usuarioLogado.idade,
+        dat_nascimento : null,
+        idprofissao :1
       }
       this.storage.setLocalUser(user);
 

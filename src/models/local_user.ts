@@ -4,6 +4,8 @@ export interface LocalUser{
     telefone: string;
     sexo: string;
     idade: string;
+    dat_nascimento: Date;
+    idprofissao: number;
     
 }
 

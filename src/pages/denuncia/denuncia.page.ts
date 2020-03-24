@@ -21,7 +21,9 @@ export class DenunciaPage implements OnInit {
   funcionario: boolean;
   matriculaFuncionario: string;
   denunciaChecked: DenunciaChecked;
-  exibirDiv: boolean = false;
+  exibirDivFaltaAr: boolean = false;
+  exibirDivPaciente: boolean = false;
+
 
   constructor(
     private storage: StorageService,
@@ -33,12 +35,12 @@ export class DenunciaPage implements OnInit {
 
     this.formDenuncia = this.formBuilder.group({
 
-      nome: ['Marcel', [Validators.required, Validators.minLength(3)]],
-      convenio: ['Amil', [Validators.required, Validators.maxLength(250)]],
-      idprofissao: ['4', [Validators.required]],
+      nome: ['', [Validators.required, Validators.minLength(3)]],
+      // convenio: ['', [Validators.required, Validators.maxLength(250)]],
+      idprofissao: ['', [Validators.required]],
       telefone: ['', [Validators.minLength(10), Validators.required]],
-      sexo: ['M', [Validators.required]],
-      idade: [25, [Validators.required]],
+      sexo: ['', [Validators.required]],
+      idade: [, [Validators.required]],
       dat_nascimento: ['', [Validators.required]],
       // idnotificacao: ['', []],
       // matricula: ['', []],
@@ -149,7 +151,7 @@ export class DenunciaPage implements OnInit {
   get f() { return this.formDenuncia.controls; }
 
   exibirDivAr(val) {
-    this.exibirDiv = val.checked;
+    this.exibirDivFaltaAr = val.checked;
     if (!val.checked) {
       this.formDenuncia.get('ind_falta_ar_caminhada').setValue(false)
       this.formDenuncia.get('ind_falta_ar_repouso').setValue(false)
@@ -157,6 +159,26 @@ export class DenunciaPage implements OnInit {
       this.formDenuncia.get('ind_pentear_cabelos').setValue(false)
       this.formDenuncia.get('ind_tomar_banho_sozinho').setValue(false)
       this.formDenuncia.get('ind_outros').setValue(false)
+
+    }
+
+  }
+  
+  setCamposPaciente(idTipoNotificacao: number){ // 1 = funcionario  2 = paciente
+
+
+    if(idTipoNotificacao==1){
+
+      this.exibirDivPaciente = false;
+     
+
+      this.formDenuncia.get('nome').setValue( localStorage.getItem('nome'));
+      this.formDenuncia.get('idprofissao').setValue( localStorage.getItem('idprofissao'));
+      this.formDenuncia.get('sexo').setValue( localStorage.getItem('sexo'));
+      this.formDenuncia.get('idade').setValue( localStorage.getItem('idade'));
+      this.formDenuncia.get('dat_nascimento').setValue( localStorage.getItem('dat_nacimento'));
+
+    }else{
 
     }
 
