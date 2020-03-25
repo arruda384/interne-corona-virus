@@ -22,8 +22,9 @@ export class DenunciaPage implements OnInit {
   matriculaFuncionario: string;
   denunciaChecked: DenunciaChecked;
   exibirDivFaltaAr: boolean = false;
-  exibirDivPaciente: boolean = false;
-
+  exibirCamposForm: boolean = false;
+  exibirCamposColaborador: boolean = false;
+  exibirCamposPaciente: boolean = false;
 
   constructor(
     private storage: StorageService,
@@ -36,11 +37,11 @@ export class DenunciaPage implements OnInit {
     this.formDenuncia = this.formBuilder.group({
 
       nome: ['', [Validators.required, Validators.minLength(3)]],
-      // convenio: ['', [Validators.required, Validators.maxLength(250)]],
-      idprofissao: ['', [Validators.required]],
+      convenio: ['', []],
+      idprofissao: ['', []],
       telefone: ['', [Validators.minLength(10), Validators.required]],
       sexo: ['', [Validators.required]],
-      idade: [, [Validators.required]],
+      idade: [, []],
       dat_nascimento: ['', [Validators.required]],
       // idnotificacao: ['', []],
       // matricula: ['', []],
@@ -80,13 +81,20 @@ export class DenunciaPage implements OnInit {
 
     );
 
-
+    den.idade = this.calculateAge(den.dat_nascimento);
     den.dat_nascimento = this.formatDat(den.dat_nascimento);
     den.dt_ini_sintomas = this.formatDat(den.dt_ini_sintomas);
+
+    if (this.exibirCamposColaborador) {
+      den.idprofissao = localStorage.getItem('id_profissao');
+    } else if (this.exibirCamposPaciente) {
+      den.idprofissao = 12;
+    }
+
+    // console.log(den);
     this.save(den);
+
   }
-
-
 
   erro(err: any) {
     alert(err.message);
@@ -102,6 +110,17 @@ export class DenunciaPage implements OnInit {
     this.presentLoading(loading);
     this.navCtrl.setRoot(HomePage);
 
+  }
+
+  calculateAge(dat) {
+    dat = dat.replace(/\D/g, "");
+    const day = dat.slice(6, 8);
+    const month = dat.slice(4, 6);
+    const year = dat.slice(0, 4);
+    const birthday = new Date(year, month, day);
+    var ageDifMs = Date.now() - birthday.getTime();
+    var ageDate = new Date(ageDifMs);
+    return Math.abs(ageDate.getUTCFullYear() - 1970);
   }
 
   formatDat(dat) {
@@ -163,22 +182,35 @@ export class DenunciaPage implements OnInit {
     }
 
   }
-  
-  setCamposPaciente(idTipoNotificacao: number){ // 1 = funcionario  2 = paciente
+
+  setCamposPaciente(idTipoNotificacao: number) {
 
 
-    if(idTipoNotificacao==1){
+    if (idTipoNotificacao == 1) { //Setar Campos de Paciente sem estar no Paciente
 
-      this.exibirDivPaciente = false;
-     
+      this.exibirCamposForm = true;
+      this.exibirCamposColaborador = false;
+      this.exibirCamposPaciente = true;
 
-      this.formDenuncia.get('nome').setValue( localStorage.getItem('nome'));
-      this.formDenuncia.get('idprofissao').setValue( localStorage.getItem('idprofissao'));
-      this.formDenuncia.get('sexo').setValue( localStorage.getItem('sexo'));
-      this.formDenuncia.get('idade').setValue( localStorage.getItem('idade'));
-      this.formDenuncia.get('dat_nascimento').setValue( localStorage.getItem('dat_nacimento'));
+      this.formDenuncia.get('nome').setValue('');
+      this.formDenuncia.get('sexo').setValue('');
+      this.formDenuncia.get('dat_nascimento').setValue('');
+      this.formDenuncia.get('idade').setValue('');
+      this.formDenuncia.get('telefone').setValue('');
+      this.formDenuncia.get('convenio').setValue('');
 
-    }else{
+    } else if (idTipoNotificacao == 2) { //Setar Campos de Colaborador sem estar no Colaborador
+
+      this.exibirCamposForm = true;
+      this.exibirCamposColaborador = true;
+      this.exibirCamposPaciente = false;
+
+      this.formDenuncia.get('nome').setValue(localStorage.getItem('nome'));
+      this.formDenuncia.get('sexo').setValue(localStorage.getItem('sexo'));
+      this.formDenuncia.get('dat_nascimento').setValue(localStorage.getItem('dat_nascimento'));
+      this.formDenuncia.get('idade').setValue(localStorage.getItem('idade'));
+      this.formDenuncia.get('telefone').setValue(localStorage.getItem('telefone').replace(/\D/g, ""));
+      this.formDenuncia.get('convenio').setValue('');
 
     }
 

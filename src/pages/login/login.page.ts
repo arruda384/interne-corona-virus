@@ -31,8 +31,6 @@ export class LoginPage {
   //   token: 'SU5URVJORSNDT1JPTkFfVklSVVMj'
   // };
 
-
-
   exibirForm = false;
   exibirLoginGogole = false;
   exibirLoginAd = false;
@@ -81,13 +79,7 @@ export class LoginPage {
     this.setCred(this.form.value);
     this.presentLoading(loading);
 
-    
-
-
-
-    // alert(this.formatDat(this.form.value.password));
-    // localStorage.setItem('dat_nascimento', this.form.value.password);
-
+    localStorage.setItem('dat_nascimento', this.formatDatInverse(this.form.value.password));
 
     console.log(this.creds)
     this.auth.authenticate(this.creds)
@@ -95,7 +87,7 @@ export class LoginPage {
 
         console.log(response);
         if (response.tipo === "ERROR") {
-          
+
           var loading = this.loadingController.create({
             content: response.message,
             duration: 6000
@@ -106,7 +98,6 @@ export class LoginPage {
           this.auth.successfulLogin(response, 1)
           // this.auth.loginFuncionario.emit((true));     
           this.navCtrl.setRoot(TabsPage);
-
 
         }
       },
@@ -121,13 +112,28 @@ export class LoginPage {
 
   }
 
+  calculateAge(birthday) {
+    var ageDifMs = Date.now() - birthday.getTime();
+    var ageDate = new Date(ageDifMs);
+    return Math.abs(ageDate.getUTCFullYear() - 1970);
+  }
+
+  formatDatInverse(dat) {
+    const day = dat.slice(0, 2);
+    const month = dat.slice(2, 4);
+    const year = dat.slice(4, 8);
+    const result = year + "-" + month + "-" + day;
+    console.log(result);
+    return result;
+  }
+
   formatDat(dat) {
-      const day = dat.slice(0, 2);
-      const month = dat.slice(2,4);
-      const year = dat.slice(4, 8);
-      const result = day + "/" + month + "/" + year;
-      return result;
-    }
+    const day = dat.slice(0, 2);
+    const month = dat.slice(2, 4);
+    const year = dat.slice(4, 8);
+    const result = day + "/" + month + "/" + year;
+    return result;
+  }
 
   async doGoogleLogin() {
     const loading = await this.loadingController.create({
@@ -160,7 +166,7 @@ export class LoginPage {
         loading.dismiss();
       }
       );
-      
+
   }
 
   async presentLoading(loading) {

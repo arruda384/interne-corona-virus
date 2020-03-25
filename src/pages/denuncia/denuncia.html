@@ -15,7 +15,7 @@
   <ion-grid>
     <ion-row>
       <ion-col>
-        <ion-card (click)="setCamposPaciente(1)" class="buttonLogin backgroundRed roundedCard">
+        <ion-card (click)="setCamposPaciente(2)" class="buttonLogin backgroundRed roundedCard">
           <img src="./assets/imgs/interne.png" />
         </ion-card>
         <ion-label class="labelSmallTitleForms textCenter">
@@ -23,7 +23,7 @@
         </ion-label>
       </ion-col>
       <ion-col>
-        <ion-card (click)="setCamposPaciente(2)" class="buttonLogin backgroundRed roundedCard">
+        <ion-card (click)="setCamposPaciente(1)" class="buttonLogin backgroundRed roundedCard">
           <img src="./assets/imgs/interne.png" />
         </ion-card>
         <ion-label class="labelSmallTitleForms textCenter">
@@ -34,142 +34,247 @@
   </ion-grid>
 
   <ion-list>
-    <form [formGroup]="formDenuncia">
-		 <div *ngIf="exibirDivPaciente">
-      <ion-label class="labelTitleForms">
-        INFORMAÇÕES PESSOAIS
-      </ion-label>
+    <form [formGroup]="formDenuncia" *ngIf="exibirCamposForm">
 
-      <ion-item>
-        <ion-label>
-          <ion-icon name="contact"></ion-icon>
+      <div *ngIf="exibirCamposPaciente">
+
+        <ion-label class="labelTitleForms">
+          INFORMAÇÕES PESSOAIS
         </ion-label>
-        <ion-input type="text" maxlength="250" formControlName="nome" placeholder="Qual o seu nome?">
-        </ion-input>
-      </ion-item>
 
-      <div *ngIf="f.nome.invalid && (f.nome.dirty || f.nome.touched)" class="alert alert-danger">
-        <p *ngIf="f.nome.errors.required" class="validationField">
-          Este campo é obrigatório.
-        </p>
-        <p *ngIf="f.nome.errors.minlength" class="validationField">
-          Este campo deve ter no mínimo 3 caracteres.
-        </p>
-        <p *ngIf="f.nome.errors.maxlength" class="validationField">
-          Este campo deve ter no máximo 250 caracteres.
-        </p>
+        <ion-item>
+          <ion-label>
+            <ion-icon name="contact"></ion-icon>
+          </ion-label>
+          <ion-input type="text" maxlength="250" formControlName="nome" placeholder="Qual o seu nome?">
+          </ion-input>
+        </ion-item>
+
+        <div *ngIf="f.nome.invalid && (f.nome.dirty || f.nome.touched)" class="alert alert-danger">
+          <p *ngIf="f.nome.errors.required" class="validationField">
+            Este campo é obrigatório.
+          </p>
+          <p *ngIf="f.nome.errors.minlength" class="validationField">
+            Este campo deve ter no mínimo 3 caracteres.
+          </p>
+          <p *ngIf="f.nome.errors.maxlength" class="validationField">
+            Este campo deve ter no máximo 250 caracteres.
+          </p>
+        </div>
+
+        <ion-item>
+          <ion-label>
+            <ion-icon name="contacts"></ion-icon>
+          </ion-label>
+          <ion-select okText="OK" cancelText="Cancelar" interface="popover" formControlName="sexo"
+            placeholder="Qual o seu sexo?">
+            <ion-option value="M">Masculino</ion-option>
+            <ion-option value="F">Feminino</ion-option>
+          </ion-select>
+        </ion-item>
+
+        <div *ngIf="f.sexo.invalid && (f.sexo.dirty || f.sexo.touched)" class="alert alert-danger">
+          <p *ngIf="f.sexo.errors.required" class="validationField">
+            Este campo é obrigatório.
+          </p>
+
+        </div>
+
+
+        <ion-item>
+          <ion-label>
+            <ion-icon name="calendar"></ion-icon>
+          </ion-label>
+          <ion-datetime doneText="OK" cancelText="Cancelar" interface="popover" formControlName="dat_nascimento"
+            placeholder="Quando você nasceu?">
+          </ion-datetime>
+        </ion-item>
+
+        <div *ngIf="f.dat_nascimento.invalid && (f.dat_nascimento.dirty || f.dat_nascimento.touched)"
+          class="alert alert-danger">
+          <p *ngIf="f.dat_nascimento.errors.required" class="validationField">
+            Este campo é obrigatório.
+          </p>
+        </div>
+
+        <ion-item>
+          <ion-label>
+            <ion-icon name="call"></ion-icon>
+          </ion-label>
+          <ion-input type="text" formControlName="telefone" mask="(00) 00000-0009" maxLength="15"
+            placeholder="Qual seu telefone para contato?">
+          </ion-input>
+        </ion-item>
+
+        <div *ngIf="f.telefone.invalid && (f.telefone.dirty || f.telefone.touched)" class="alert alert-danger">
+          <p *ngIf="f.telefone.errors.required" class="validationField">
+            Este campo é obrigatório.
+          </p>
+          <p *ngIf="f.telefone.errors.minlength" class="validationField">
+            Este campo deve ter no mínimo 11 caracteres.
+          </p>
+        </div>
+
+        <ion-item>
+          <ion-label>
+            <ion-icon name="copy"></ion-icon>
+          </ion-label>
+          <ion-select okText="OK" cancelText="Cancelar" formControlName="convenio"
+            placeholder="Qual o seu Convênio?">
+            <ion-option value="228">AMEPE CAMPE - FIQBEM</ion-option>
+            <ion-option value="35">AMEPE CAMPE</ion-option>
+            <ion-option value="3">AMIL</ion-option>
+            <ion-option value="132">AMIL - FIQBEM</ion-option>
+            <ion-option value="235">ASSEFAZ PAIC</ion-option>
+            <ion-option value="21">ASSEFAZ PAID</ion-option>
+            <ion-option value="49">AXISMED</ion-option>
+            <ion-option value="125">BANCEN - BANCO CENTRAL</ion-option>
+            <ion-option value="200">BEM EMERGENCIAS</ion-option>
+            <ion-option value="209">BORIS BERENSTEIN BOA VIAGEM</ion-option>
+            <ion-option value="208">BORIS BERENSTEIN DERBY</ion-option>
+            <ion-option value="92">BR DISTRIBUIDORA</ion-option>
+            <ion-option value="62">BRADESCO SAUDE</ion-option>
+            <ion-option value="190">BRADESCO SAUDE - REMOCAO</ion-option>
+            <ion-option value="97">CAMARGO CORREIA</ion-option>
+            <ion-option value="13">CAMED</ion-option>
+            <ion-option value="71">CAMED - FIQBEM</ion-option>
+            <ion-option value="4">CAPESESP</ion-option>
+            <ion-option value="6">CASSI</ion-option>
+            <ion-option value="159">CASSI - FIQBEM</ion-option>
+            <ion-option value="89">CENTRO PE DE ONCOLOGIA</ion-option>
+            <ion-option value="225">CLINICA VIVA MELHOR</ion-option>
+            <ion-option value="103">CLIVAR</ion-option>
+            <ion-option value="239">CNU - CENTRAL NACIONAL UNIMED</ion-option>
+            <ion-option value="33">COMSAUDE</ion-option>
+            <ion-option value="165">CONTA EXTRA INTERNE</ion-option>
+            <ion-option value="217">CONTRAPROVA</ion-option>
+            <ion-option value="191">CONVENIO EM NEGOCIACAO</ion-option>
+            <ion-option value="226">CONVENIO EM NEGOCIACAO</ion-option>
+            <ion-option value="5">CORREIOS</ion-option>
+            <ion-option value="205">CORTESIA</ion-option>
+            <ion-option value="218">DIAGMAX</ion-option>
+            <ion-option value="219">DIAGNOSTIKA</ion-option>
+            <ion-option value="214">DNA CONSULT</ion-option>
+            <ion-option value="187">ENDOGYNO</ion-option>
+            <ion-option value="220">ENDOTERAPEUTICA</ion-option>
+            <ion-option value="67">EVENTOS</ion-option>
+            <ion-option value="28">EXCELSIOR SAUDE</ion-option>
+            <ion-option value="52">EXTRA-CONVENIO</ion-option>
+            <ion-option value="7">FACHESF</ion-option>
+            <ion-option value="42">FACHESF - FIQBEM</ion-option>
+            <ion-option value="203">FACULDADE PERNAMBUCANA DE SAUD</ion-option>
+            <ion-option value="185">FIAT SAUDE</ion-option>
+            <ion-option value="11">FISCO SAUDE OU SINDFISCO</ion-option>
+            <ion-option value="83">FUSEX</ion-option>
+            <ion-option value="163">GAMA SAUDE</ion-option>
+            <ion-option value="210">GASTROCLINICA</ion-option>
+            <ion-option value="34">GEAP</ion-option>
+            <ion-option value="126">GEAP - FIQBEM</ion-option>
+            <ion-option value="47">GOLDEN CROSS</ion-option>
+            <ion-option value="41">GOLDEN CROSS - FIQBEM</ion-option>
+            <ion-option value="96">GOLDEN CROSS - REMOCAO</ion-option>
+            <ion-option value="138">GRUPO FLEURY</ion-option>
+            <ion-option value="61">GRUPO SAUDE</ion-option>
+            <ion-option value="79">GRUPO SAUDE - FIQBEM</ion-option>
+            <ion-option value="85">GRUPO TRINO</ion-option>
+            <ion-option value="156">HAPVIDA</ion-option>
+            <ion-option value="141">HEMATO</ion-option>
+            <ion-option value="95">HEMONEFRO</ion-option>
+            <ion-option value="127">HOME DOCTOR</ion-option>
+            <ion-option value="109">HOSP CASA DE SAUDE DE LIMOEIRO</ion-option>
+            <ion-option value="98">HOSPITAL CASA FORTE</ion-option>
+            <ion-option value="192">HOSPITAL DA  AERONAUTICA</ion-option>
+            <ion-option value="193">HOSPITAL DO VALE</ion-option>
+            <ion-option value="68">HOSPITAL ESPERANCA</ion-option>
+            <ion-option value="48">HOSPITAL ESPERANÇA OLINDA</ion-option>
+            <ion-option value="176">HOSPITAL JAYME DA FONTE</ion-option>
+            <ion-option value="118">HOSPITAL MEMORIAL SAO JOSE</ion-option>
+            <ion-option value="238">HOSPITAL PORTUGUES</ion-option>
+            <ion-option value="121">HOSPITAL SANTA JOANA</ion-option>
+            <ion-option value="73">HOSPITAL SAO MARCOS</ion-option>
+            <ion-option value="63">HOSPITAL SAO SALVADOR</ion-option>
+            <ion-option value="8">HOSPITAU</ion-option>
+            <ion-option value="196">INFORMAR SAUDE TELEORIENTACAO</ion-option>
+            <ion-option value="76">INTER PARTNER</ion-option>
+            <ion-option value="229">INTERASSIST S.A</ion-option>
+            <ion-option value="10">INTERMÉDICA / NORCLINICAS</ion-option>
+            <ion-option value="234">ION</ion-option>
+            <ion-option value="26">IRH</ion-option>
+            <ion-option value="211">LUCILO AVILA</ion-option>
+            <ion-option value="213">LUCILO MARANHAO</ion-option>
+            <ion-option value="172">MARINHA DO BRASIL</ion-option>
+            <ion-option value="77">MAXICLINICA MEDICA</ion-option>
+            <ion-option value="182">MED SALVA</ion-option>
+            <ion-option value="56">MEDALLIANCE</ion-option>
+            <ion-option value="22">MEDISERVICE</ion-option>
+            <ion-option value="198">MULTIHEMO</ion-option>
+            <ion-option value="101">NEFROCLINICA</ion-option>
+            <ion-option value="215">NEOH MEMORIAL</ion-option>
+            <ion-option value="59">NOTRE DAME</ion-option>
+            <ion-option value="237">ONCOCLINICA</ion-option>
+            <ion-option value="223">ORDEM TERCEIRA DO CARMO</ion-option>
+            <ion-option value="231">OTORRINOS RECIFE</ion-option>
+            <ion-option value="222">PADRONIZACAO ASSISTENCIAL</ion-option>
+            <ion-option value="212">PARCERIA</ion-option>
+            <ion-option value="16">PARTICULAR</ion-option>
+            <ion-option value="90">PARTICULAR - FIQBEM</ion-option>
+            <ion-option value="197">PAULISTA NORTH WAY SHOPPING</ion-option>
+            <ion-option value="232">PERDAS</ion-option>
+            <ion-option value="17">PETROBRAS</ion-option>
+            <ion-option value="69">PETROBRAS - REMOCAO</ion-option>
+            <ion-option value="87">PETROBRAS - SUAPE</ion-option>
+            <ion-option value="36">PLAN ASSISTE</ion-option>
+            <ion-option value="38">PLANSFER</ion-option>
+            <ion-option value="40">PLAZA CASA FORTE</ion-option>
+            <ion-option value="189">PROGRAMA FERINJECT TAKEDA</ion-option>
+            <ion-option value="128">PROGRAMA OSTEOLINK</ion-option>
+            <ion-option value="78">PROSAUDE</ion-option>
+            <ion-option value="80">QUALICORP</ion-option>
+            <ion-option value="84">REXAM</ion-option>
+            <ion-option value="94">RM EOLICA</ion-option>
+            <ion-option value="54">SANTA CASA DE MISERICORDIA</ion-option>
+            <ion-option value="58">SANTA CLARA - REMOCOES</ion-option>
+            <ion-option value="116">SANTA CASA DE MISERICORDIA</ion-option>
+            <ion-option value="57">SANTA CLARA - REMOCOES</ion-option>
+            <ion-option value="57">SAUDE CAIXA - FUNCEF</ion-option>
+            <ion-option value="57">SAUDE RECIFE</ion-option>
+            <ion-option value="88">SAUDE RECIFE - FIQBEM</ion-option>
+            <ion-option value="75">SECRETARIA DE SAUDE</ion-option>
+            <ion-option value="227">SEOPE</ion-option>
+            <ion-option value="230">SHOPPING RECIFE</ion-option>
+            <ion-option value="37">SHOPPING TACARUNA</ion-option>
+            <ion-option value="122">S.O.S MAOS</ion-option>
+            <ion-option value="184">SOS RENAL</ion-option>
+            <ion-option value="12">SULAMERICA</ion-option>
+            <ion-option value="43">SULAMERICA - CASE</ion-option>
+            <ion-option value="100">SUL-AMERICA - REMOCOES</ion-option>
+            <ion-option value="162">TEMPO SAUDE</ion-option>
+            <ion-option value="195">THERASKIN</ion-option>
+            <ion-option value="64">TRF</ion-option>
+            <ion-option value="14">UNAFISCO</ion-option>
+            <ion-option value="206">UNIMED CARUARU</ion-option>
+            <ion-option value="115">UNIMED CENTRO - BRASILIA</ion-option>
+            <ion-option value="186">UNIMED N/NE</ion-option>
+            <ion-option value="24">UNIMED RECIFE</ion-option>
+            <ion-option value="199">UNIMED RECIFE - REMOCOES</ion-option>
+            <ion-option value="161">UNIMED RIO</ion-option>
+            <ion-option value="111">UNIMED RIO - FIQBEM</ion-option>
+            <ion-option value="131">UNIMED SEGUROS</ion-option>
+            <ion-option value="188">UNINEFRON</ion-option>
+            <ion-option value="216">UTC</ion-option>
+          </ion-select>
+        </ion-item>
+
+        <div *ngIf="f.convenio.invalid && (f.convenio.dirty || f.convenio.touched)" class="alert alert-danger">
+          <p *ngIf="f.convenio.errors.required" class="validationField">
+            Este campo é obrigatório.
+          </p>
+          <p *ngIf="f.convenio.errors.maxlength" class="validationField">
+            Este campo deve ter no mínimo 250 caracteres.
+          </p>
+        </div>
+
       </div>
-
-      <ion-item>
-        <ion-label>
-          <ion-icon name="contacts"></ion-icon>
-        </ion-label>
-        <ion-select okText="OK" cancelText="Cancelar" interface="popover" formControlName="sexo"
-          placeholder="Qual o seu sexo?">
-          <ion-option value="M">Masculino</ion-option>
-          <ion-option value="F">Feminino</ion-option>
-        </ion-select>
-      </ion-item>
-      <div *ngIf="f.sexo.invalid && (f.sexo.dirty || f.sexo.touched)" class="alert alert-danger">
-        <p *ngIf="f.sexo.errors.required" class="validationField">
-          Este campo é obrigatório.
-        </p>
-
-      </div>
-
-
-      <ion-item>
-        <ion-label>
-          <ion-icon name="calendar"></ion-icon>
-        </ion-label>
-        <ion-datetime doneText="OK" cancelText="Cancelar" interface="popover" formControlName="dat_nascimento"
-          placeholder="Quando você nasceu?">
-        </ion-datetime>
-      </ion-item>
-
-      <div *ngIf="f.dat_nascimento.invalid && (f.dat_nascimento.dirty || f.dat_nascimento.touched)"
-        class="alert alert-danger">
-        <p *ngIf="f.dat_nascimento.errors.required" class="validationField">
-          Este campo é obrigatório.
-        </p>
-      </div>
-
-      <ion-item>
-        <ion-label>
-          <ion-icon name="contact"></ion-icon>
-        </ion-label>
-        <ion-input type="number" maxlength="3" formControlName="idade" placeholder="Quantos anos você tem?">
-        </ion-input>
-      </ion-item>
-
-      <div *ngIf="f.idade.invalid && (f.idade.dirty || f.idade.touched)" class="alert alert-danger">
-        <p *ngIf="f.idade.errors.required" class="validationField">
-          Este campo é obrigatório.
-        </p>
-      </div>
-
-      <ion-item>
-        <ion-label>
-          <ion-icon name="call"></ion-icon>
-        </ion-label>
-        <ion-input type="text" formControlName="telefone" mask="(00) 00000-0009" maxLength="15"
-          placeholder="Qual seu telefone para contato?">
-        </ion-input>
-      </ion-item>
-
-      <div *ngIf="f.telefone.invalid && (f.telefone.dirty || f.telefone.touched)" class="alert alert-danger">
-        <p *ngIf="f.telefone.errors.required" class="validationField">
-          Este campo é obrigatório.
-        </p>
-        <p *ngIf="f.telefone.errors.minlength" class="validationField">
-          Este campo deve ter no mínimo 11 caracteres.
-        </p>
-      </div>
-
-      <ion-item>
-        <ion-label>
-          <ion-icon name="copy"></ion-icon>
-        </ion-label>
-        <ion-input type="text" maxlength="250" formControlName="convenio" placeholder="Qual o seu Convênio?">
-        </ion-input>
-      </ion-item>
-
-      <div *ngIf="f.convenio.invalid && (f.convenio.dirty || f.convenio.touched)" class="alert alert-danger">
-        <p *ngIf="f.convenio.errors.required" class="validationField">
-          Este campo é obrigatório.
-        </p>
-        <p *ngIf="f.convenio.errors.maxlength" class="validationField">
-          Este campo deve ter no mínimo 250 caracteres.
-        </p>
-      </div>
-
-      <ion-item>
-        <ion-label>
-          <ion-icon name="clipboard"></ion-icon>
-        </ion-label>
-        <ion-select okText="OK" cancelText="Cancelar" interface="popover" formControlName="idprofissao"
-          placeholder="Qual sua Profissão?">
-          <ion-option value='1'>Administrativo</ion-option>
-          <ion-option value='2'>Enfermeiro</ion-option>
-          <ion-option value='3'>Familiar</ion-option>
-          <ion-option value='4'>Fisioterapeuta</ion-option>
-          <ion-option value='5'>Fonoterapeuta</ion-option>
-          <ion-option value='6'>Médico</ion-option>
-          <ion-option value='7'>Nutricionista</ion-option>
-          <ion-option value='8'>T.O.</ion-option>
-          <ion-option value='9'>Outros</ion-option>
-          <ion-option value='10'>Téc. em Enfermagem</ion-option>
-          <ion-option value='11'>Cuidador</ion-option>
-          <ion-option value='12'>Paciente</ion-option>
-        </ion-select>
-      </ion-item>
-
-      <div *ngIf="f.idprofissao.invalid && (f.idprofissao.dirty || f.idprofissao.touched)" class="alert alert-danger">
-        <p *ngIf="f.idprofissao.errors.required" class="validationField">
-          Este campo é obrigatório.
-        </p>
-      </div>
-
 
       <ion-label class="labelTitleForms">
         SINTOMAS
@@ -290,7 +395,7 @@
         ion-button>
         Salvar
       </button>
-		</div>
+
     </form>
   </ion-list>
 
