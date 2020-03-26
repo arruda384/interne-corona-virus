@@ -25,8 +25,9 @@ import { DenunciaPage } from '../pages/denuncia/denuncia.page';
 import { DenunciaService } from '../pages/denuncia/services/denuncia.service';
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
 import { AppRoutingModule } from './app-routing.module';
-import { ComitePage } from '../pages/comite/comite';
+import { ComitePage } from '../pages/comite/comitePage';
 import { NgxMaskIonicModule } from 'ngx-mask-ionic';
+import { ComiteService } from '../pages/comite/services/comite.service';
 
 
 @NgModule({
@@ -73,6 +74,7 @@ import { NgxMaskIonicModule } from 'ngx-mask-ionic';
     StorageService,
     DenunciaService,
     NativeStorage,
+    ComiteService
   ]
 })
 export class AppModule {}

@@ -27,12 +27,6 @@ export class LoginPage {
   checkBoxLoginInterne: boolean = true;
   checkBoxLoginGoogle: boolean = true;
 
-  // creds: CredenciaisDTO = {
-  //   matricula: 5020,
-  //   password: '14041983',
-  //   token: 'SU5URVJORSNDT1JPTkFfVklSVVMj'
-  // };
-
   exibirForm = false;
   exibirLoginGogole = false;
   exibirLoginAd = false;
@@ -44,8 +38,8 @@ export class LoginPage {
     private auth: AuthService) {
 
     this.form = this.formBuilder.group({
-      matricula: ['5020', [Validators.required]],
-      password: ['14041983', [Validators.required]],
+      matricula: ['', [Validators.required]],
+      password: ['', [Validators.required]],
     });
 
   }

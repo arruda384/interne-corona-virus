@@ -1,6 +1,6 @@
 export interface comiteDTO {
-    titulo : string;
-    texto : string;
-    image: string;
+    nome : string;
+    data : string;
+    link: string;
 
 }

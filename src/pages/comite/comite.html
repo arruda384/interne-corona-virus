@@ -36,8 +36,8 @@
       </tbody> C:\repositorioGit\interne-corona-virus\src\assets\boletim\boletim001.pdf
     </table> -->
 
-    <ion-card>
-      <a class="" src="./assets\boletim\boletim001.pdf" download="Boletim Nº1 - COVID19 ">
+    <ion-card *ngFor= "let pdf of listaPdfComite">  
+      <a class="" href="{{pdf.link}}" download="Boletim Nº1 - COVID19 ">
         <ion-grid>
           <ion-row>
             <ion-col>
@@ -60,7 +60,12 @@
             </ion-col>
           </ion-row>
         </ion-grid>
-        <div class="boletimLink">19 de Março de 2020</div>
+        
+          <div  class="boletimLink col-xs-12 col-md-10"> {{pdf.nome}} |  {{pdf.data}}   <ion-icon class="iconPdf" name="cloud-download"></ion-icon> </div> 
+        
+        
+
+        <!-- <div class="boletimLink">19 de Março de 2020</div> -->
       </a>
     </ion-card>
 

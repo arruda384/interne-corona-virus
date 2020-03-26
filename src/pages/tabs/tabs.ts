@@ -4,7 +4,7 @@ import { PrevencaoPage } from '../prevencao/prevencao';
 import { DenunciaPage } from '../denuncia/denuncia.page';
 import { HomePage } from '../home/home';
 import { AuthService } from '../../services/auth.service';
-import { ComitePage } from '../comite/comite';
+import { ComitePage } from '../comite/comitePage';
 
 
 
