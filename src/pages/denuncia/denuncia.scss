@@ -29,6 +29,11 @@ page-denuncia{
 .imgColorful{
     -webkit-filter: none;
     filter: none; /* IE */
+    transition: 0.5s;
+}
+
+.list-md .item-input:last-child {
+    border-bottom: hidden;
 }
 
 .label-ios + ion-input .text-input, .label-ios + ion-textarea .text-input, .label-ios + .input + .cloned-input {

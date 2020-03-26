@@ -46,8 +46,9 @@ export class DenunciaPage implements OnInit {
     this.formDenuncia = this.formBuilder.group({
 
       nome: ['', [Validators.required, Validators.minLength(3)]],
-      convenio: ['', []],
+      // convenio: ['', []],
       idprofissao: ['', []],
+      idnotificador: ['', []],
       telefone: ['', [Validators.minLength(10), Validators.required]],
       sexo: ['', [Validators.required]],
       idade: [, []],
@@ -105,8 +106,7 @@ export class DenunciaPage implements OnInit {
     den.dt_ini_sintomas = this.formatDat(den.dt_ini_sintomas);
 
     if (this.exibirCamposColaborador) {
-      // den.idp rofissao = localStorage.getItem('id_profissao');
-      den.idprofissao = 1;
+      den.idprofissao = localStorage.getItem('id_profissao');
       den.dat_nascimento = this.dtNascimentoFuncionario;
       den.idade = this.calculateAge(this.dtNascimentoFuncionario);
 
@@ -116,6 +116,8 @@ export class DenunciaPage implements OnInit {
       den.idade = this.calculateAge(den.dat_nascimento);
 
     }
+
+    den.idnotificador = localStorage.getItem('id_profissao');
 
     // console.log(den);
     this.save(den);
@@ -266,8 +268,8 @@ export class DenunciaPage implements OnInit {
       this.formDenuncia.get('dat_nascimento').setValue(localStorage.getItem('dat_nascimento'));
       this.formDenuncia.get('idade').setValue(localStorage.getItem('idade'));
       this.formDenuncia.get('telefone').setValue(localStorage.getItem('telefone').replace(/\D/g, ""));
-      this.formDenuncia.get('convenio').setValue('');
-      this.formDenuncia.get('idprofissao').setValue(1);
+      // this.formDenuncia.get('convenio').setValue('');
+      // this.formDenuncia.get('idprofissao').setValue(1);
 
     }
 

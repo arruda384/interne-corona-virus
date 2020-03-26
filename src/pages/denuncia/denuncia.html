@@ -9,7 +9,7 @@
 <ion-content>
 
   <ion-label class="labelTitleForms">
-    TIPO DO PACIENTE
+    QUEM VOCÊ GOSTARIA DE NOTIFICAR?
   </ion-label>
 
   <ion-grid>
@@ -19,7 +19,7 @@
           <img src="./assets/imgs/interne.png" />
         </ion-card>
         <ion-label class="labelSmallTitleForms textCenter">
-          COLABORADOR
+          EU MESMO
         </ion-label>
       </ion-col>
       <ion-col [ngClass]="exibirCamposPaciente?'imgColorful':'imgBlackWhite'">
@@ -27,7 +27,7 @@
           <img src="./assets/imgs/tosse-seca.png" />
         </ion-card>
         <ion-label class="labelSmallTitleForms textCenter">
-          PACIENTE COMUM
+          UM FAMILIAR MEU
         </ion-label>
       </ion-col>
     </ion-row>
@@ -46,7 +46,7 @@
           <ion-label>
             <ion-icon name="contact"></ion-icon>
           </ion-label>
-          <ion-input type="text" maxlength="250" formControlName="nome" placeholder="Qual o seu nome?">
+          <ion-input type="text" maxlength="250" formControlName="nome" placeholder="Qual o nome dele(a)?">
           </ion-input>
         </ion-item>
 
@@ -67,7 +67,7 @@
             <ion-icon name="contacts"></ion-icon>
           </ion-label>
           <ion-select okText="OK" cancelText="Cancelar" interface="popover" formControlName="sexo"
-            placeholder="Qual o seu sexo?">
+            placeholder="Qual o sexo dele(a)?">
             <ion-option value="M">Masculino</ion-option>
             <ion-option value="F">Feminino</ion-option>
           </ion-select>
@@ -85,7 +85,7 @@
             <ion-icon name="calendar"></ion-icon>
           </ion-label>
           <ion-datetime doneText="OK" cancelText="Cancelar" interface="popover" formControlName="dat_nascimento"
-            placeholder="Quando você nasceu?">
+            placeholder="Quando ele(a) nasceu?">
           </ion-datetime>
         </ion-item>
 
@@ -101,7 +101,7 @@
             <ion-icon name="call"></ion-icon>
           </ion-label>
           <ion-input type="text" formControlName="telefone" mask="(00) 00000-0009" maxLength="15"
-            placeholder="Qual seu telefone para contato?">
+            placeholder="Ele(a) tem algum telefone para contato?">
           </ion-input>
         </ion-item>
 
@@ -114,12 +114,12 @@
           </p>
         </div>
 
-        <ion-item>
+        <!-- <ion-item>
           <ion-label>
             <ion-icon name="copy"></ion-icon>
           </ion-label>
           <ion-select okText="OK" cancelText="Cancelar" formControlName="convenio"
-            placeholder="Qual o seu Convênio?">
+            placeholder="Qual o Convênio dele(a)?">
             <ion-option value="228">AMEPE CAMPE - FIQBEM</ion-option>
             <ion-option value="35">AMEPE CAMPE</ion-option>
             <ion-option value="3">AMIL</ion-option>
@@ -271,7 +271,7 @@
           <p *ngIf="f.convenio.errors.maxlength" class="validationField">
             Este campo deve ter no mínimo 250 caracteres.
           </p>
-        </div>
+        </div> -->
 
       </div>
 
