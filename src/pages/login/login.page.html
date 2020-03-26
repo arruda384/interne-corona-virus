@@ -11,12 +11,12 @@
   <ion-grid>
     <ion-row>
       <ion-col>
-        <ion-card (click)="exibirTipoLogin(1)" class="buttonLogin backgroundRed roundedCard">
+        <ion-card (click)="exibirTipoLogin(1)" [ngClass]="checkBoxLoginInterne?'imgColorful':'imgBlackWhite'" class="buttonLogin backgroundRed roundedCard">
           <img src="./assets/imgs/interne.png" />
         </ion-card>
       </ion-col>
       <ion-col>
-        <ion-card (click)="doGoogleLogin()" class="buttonLogin roundedCard">
+        <ion-card (click)="doGoogleLogin()" [ngClass]="checkBoxLoginGoogle?'imgColorful':'imgBlackWhite'" class="buttonLogin roundedCard">
           <img src="./assets/imgs/google.png" />
         </ion-card>
       </ion-col>

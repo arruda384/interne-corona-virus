@@ -21,11 +21,19 @@ export class DenunciaPage implements OnInit {
   funcionario: boolean;
   matriculaFuncionario: string;
   denunciaChecked: DenunciaChecked;
+
   exibirDivFaltaAr: boolean = false;
   exibirCamposForm: boolean = false;
   exibirCamposColaborador: boolean = false;
   exibirCamposPaciente: boolean = false;
+
   dtNascimentoFuncionario: string;
+
+  checkBoxFebre: boolean = false;
+  checkBoxTosse: boolean = false;
+  checkBoxCongestao: boolean = false;
+  checkBoxDorGarganta: boolean = false;
+  checkBoxFaltaAr: boolean = false;
 
   constructor(
     private storage: StorageService,
@@ -76,16 +84,16 @@ export class DenunciaPage implements OnInit {
     // this.matriculaFuncionario = localStorage
 
     this.funcionario = (localStorage.getItem("matricula") === "0" || localStorage.getItem("matricula") === undefined)
-                       ? false 
-                       : true
-                         [this.matriculaFuncionario = localStorage.getItem('matricula'),
-                          this.dtNascimentoFuncionario = localStorage.getItem('dat_nascimento')];
+      ? false
+      : true
+      [this.matriculaFuncionario = localStorage.getItem('matricula'),
+      this.dtNascimentoFuncionario = localStorage.getItem('dat_nascimento')];
 
   }
 
   submited() {
     let den = Object.assign({
-        'token': 'SU5URVJORSNDT1JPTkFfVklSVVMj',
+      'token': 'SU5URVJORSNDT1JPTkFfVklSVVMj',
       'idprofissao': 1, 'dat_nascimento': this.dtNascimentoFuncionario
     },
       { 'matricula': this.matriculaFuncionario },
@@ -95,7 +103,7 @@ export class DenunciaPage implements OnInit {
 
     // den.dat_nascimento = this.formatDat(den.dat_nascimento);
     den.dt_ini_sintomas = this.formatDat(den.dt_ini_sintomas);
-    
+
     if (this.exibirCamposColaborador) {
       // den.idp rofissao = localStorage.getItem('id_profissao');
       den.idprofissao = 1;
@@ -106,8 +114,6 @@ export class DenunciaPage implements OnInit {
       den.idprofissao = 12;
       den.dat_nascimento = this.formatDat(den.dat_nascimento);
       den.idade = this.calculateAge(den.dat_nascimento);
-
-
 
     }
 
@@ -129,6 +135,30 @@ export class DenunciaPage implements OnInit {
     });
     this.presentLoading(loading);
     this.navCtrl.setRoot(HomePage);
+
+  }
+
+  setCheckBoxChangeColor(key) {
+
+    switch (key) {
+      case 1:
+        this.checkBoxFebre = !this.checkBoxFebre;
+        break;
+      case 2:
+        this.checkBoxTosse = !this.checkBoxTosse;
+        break;
+      case 3:
+        this.checkBoxCongestao = !this.checkBoxCongestao;
+        break;
+      case 4:
+        this.checkBoxDorGarganta = !this.checkBoxDorGarganta;
+        break;
+      case 5:
+        this.checkBoxFaltaAr = !this.checkBoxFaltaAr;
+        break;
+      default:
+        break;
+    }
 
   }
 

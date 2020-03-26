@@ -25,6 +25,9 @@ export class LoginPage {
   creds: CredenciaisDTO;
   rootPage: any = TabsPage;
 
+  checkBoxLoginInterne: boolean = true;
+  checkBoxLoginGoogle: boolean = true;
+
   // creds: CredenciaisDTO = {
   //   matricula: 5020,
   //   password: '14041983',
@@ -49,7 +52,10 @@ export class LoginPage {
   }
 
   exibirTipoLogin(id: number) {
-    console.log(id);
+
+    this.checkBoxLoginInterne = true;
+    this.checkBoxLoginGoogle = false;
+
     if (id === 1) {
       this.exibirLoginAd = true;
       this.exibirLoginGogole = false;
@@ -125,10 +131,14 @@ export class LoginPage {
     const day = dat.slice(0, 2);
     const month = dat.slice(2, 4);
     const year = dat.slice(4, 8);
-    return  day + "/" + month + "/" + year;
+    return day + "/" + month + "/" + year;
   }
 
   async doGoogleLogin() {
+
+    this.checkBoxLoginInterne = false;
+    this.checkBoxLoginGoogle = true;
+
     const loading = await this.loadingController.create({
       content: 'Please wait...'
     });

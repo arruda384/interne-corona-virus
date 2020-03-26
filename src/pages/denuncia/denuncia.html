@@ -14,7 +14,7 @@
 
   <ion-grid>
     <ion-row>
-      <ion-col>
+      <ion-col [ngClass]="exibirCamposColaborador?'imgColorful':'imgBlackWhite'">
         <ion-card (click)="setCamposPaciente(2)" class="buttonLogin backgroundRed roundedCard">
           <img src="./assets/imgs/interne.png" />
         </ion-card>
@@ -22,9 +22,9 @@
           COLABORADOR
         </ion-label>
       </ion-col>
-      <ion-col>
-        <ion-card (click)="setCamposPaciente(1)" class="buttonLogin backgroundRed roundedCard">
-          <img src="./assets/imgs/interne.png" />
+      <ion-col [ngClass]="exibirCamposPaciente?'imgColorful':'imgBlackWhite'">
+        <ion-card (click)="setCamposPaciente(1)" class="buttonLogin roundedCard">
+          <img src="./assets/imgs/tosse-seca.png" />
         </ion-card>
         <ion-label class="labelSmallTitleForms textCenter">
           PACIENTE COMUM
@@ -79,7 +79,6 @@
           </p>
 
         </div>
-
 
         <ion-item>
           <ion-label>
@@ -286,60 +285,61 @@
 
       <ion-grid>
         <ion-row>
-          <ion-col>
+          <ion-col [ngClass]="checkBoxFebre?'imgColorful':'imgBlackWhite'">
             <ion-item>
               <ion-label>
                 <img src="./assets/imgs/febre.png" />
                 <ion-label class="sintomaTexto">Febre</ion-label>
               </ion-label>
-              <ion-checkbox formControlName="ind_febre"></ion-checkbox>
+              <ion-checkbox (click)="setCheckBoxChangeColor(1)" formControlName="ind_febre"></ion-checkbox>
             </ion-item>
           </ion-col>
-          <ion-col>
+          <ion-col [ngClass]="checkBoxTosse?'imgColorful':'imgBlackWhite'">
             <ion-item>
               <ion-label>
                 <img src="./assets/imgs/tosse-seca.png" />
                 <ion-label class="sintomaTexto">Tosse</ion-label>
               </ion-label>
-              <ion-checkbox type="ion-checkbox" formControlName="ind_tosse"></ion-checkbox>
+              <ion-checkbox (click)="setCheckBoxChangeColor(2)" type="ion-checkbox" formControlName="ind_tosse"></ion-checkbox>
             </ion-item>
           </ion-col>
         </ion-row>
 
         <ion-row>
-          <ion-col>
+          <ion-col [ngClass]="checkBoxCongestao?'imgColorful':'imgBlackWhite'">
             <ion-item>
               <ion-label>
                 <img src="./assets/imgs/congestao-nasal.png" />
                 <ion-label class="sintomaTexto">Congestão Nasal</ion-label>
               </ion-label>
-              <ion-checkbox formControlName="ind_congestao_nasal"></ion-checkbox>
+              <ion-checkbox (click)="setCheckBoxChangeColor(3)" formControlName="ind_congestao_nasal"></ion-checkbox>
             </ion-item>
           </ion-col>
-          <ion-col>
+          <ion-col [ngClass]="checkBoxDorGarganta?'imgColorful':'imgBlackWhite'">
             <ion-item>
               <ion-label>
                 <img src="./assets/imgs/dores-no-corpo.png" />
                 <ion-label class="sintomaTexto">Dor na Garganta</ion-label>
               </ion-label>
-              <ion-checkbox formControlName="ind_dor_garganta"></ion-checkbox>
+              <ion-checkbox (click)="setCheckBoxChangeColor(4)" formControlName="ind_dor_garganta"></ion-checkbox>
             </ion-item>
           </ion-col>
         </ion-row>
 
         <ion-row>
-          <ion-col>
+          <ion-col [ngClass]="checkBoxFaltaAr?'imgColorful':'imgBlackWhite'">
             <ion-item>
               <ion-label>
                 <img src="./assets/imgs/cansaco.png" />
                 <ion-label class="sintomaTexto">Falta de Ar</ion-label>
               </ion-label>
-              <ion-checkbox (ionChange)="exibirDivAr($event)" formControlName="ind_falta_ar"></ion-checkbox>
+              <ion-checkbox (click)="setCheckBoxChangeColor(5)" formControlName="ind_falta_ar" (ionChange)="exibirDivAr($event)"></ion-checkbox>
             </ion-item>
           </ion-col>
           <ion-col>
           </ion-col>
         </ion-row>
+
       </ion-grid>
 
       <div *ngIf="exibirDivFaltaAr">

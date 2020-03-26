@@ -19,6 +19,18 @@ page-denuncia{
     margin-bottom:0px;
 }
 
+.imgBlackWhite {
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+    filter: gray; /* IE */
+    transition: 0.5s;
+  }
+
+.imgColorful{
+    -webkit-filter: none;
+    filter: none; /* IE */
+}
+
 .label-ios + ion-input .text-input, .label-ios + ion-textarea .text-input, .label-ios + .input + .cloned-input {
     margin-left: 5px;
     width: calc(100% - (16px / 2) - 16px);
