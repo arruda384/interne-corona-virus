@@ -16,15 +16,15 @@ import { Router } from '@angular/router';
   selector: 'app-root',
   templateUrl: 'app.html',
 })
-export class MyApp implements OnInit, OnDestroy  {
+export class MyApp implements OnInit, OnDestroy {
 
-  rootPage:any = LoginPage;
+  rootPage: any = LoginPage;
 
   public appPages = [
-   
-    {title: 'Login', url: '/login',  component: 'LoginPage',  icon: ''   }
+
+    { title: 'Login', url: '/login', component: 'LoginPage', icon: '' }
     // {title: 'Profile',url: '/profile',  component: 'ProfilePage' ,con: ''    }
-   // {title: 'Logout', url:'/home', component: '' ,con: ''    }
+    // {title: 'Logout', url:'/home', component: '' ,con: ''    }
   ];
 
   constructor(
@@ -33,10 +33,10 @@ export class MyApp implements OnInit, OnDestroy  {
     private statusBar: StatusBar,
     private backgroundMode: BackgroundMode,
     private nativeStorage: NativeStorage,
-    private router : Router,
-    
+    private router: Router,
 
-  ) {}
+
+  ) { }
 
   ngOnInit() {
     this.initializeApp();
@@ -53,37 +53,28 @@ export class MyApp implements OnInit, OnDestroy  {
 
   // initializeApp() {
 
-    //this.nav.setRoot(LoginPage);
-    // this.platform.ready().then(() => {
-    //   // if(!this.backgroundMode.isActive()){
-    //   //   this.configurarBGMode();
-    //   // }
-    //   this.statusBar.styleDefault();
-    //   this.splashScreen.hide();
-    //   // this.router.navigateByUrl('app');
-    // });
+  //this.nav.setRoot(LoginPage);
+  // this.platform.ready().then(() => {
+  //   // if(!this.backgroundMode.isActive()){
+  //   //   this.configurarBGMode();
+  //   // }
+  //   this.statusBar.styleDefault();
+  //   this.splashScreen.hide();
+  //   // this.router.navigateByUrl('app');
+  // });
   // }
 
   initializeApp() {
 
-    this.platform.ready().then(()=> {
+    this.platform.ready().then(() => {
 
-      if(localStorage.getItem("matricula")){
-        //  alert('nome: '  + localStorage.getItem("nome"));
-        //  alert('email: ' + localStorage.getItem("email"));
-        //  alert('matrícula:' + localStorage.getItem("matricula"));
+      this.rootPage = (localStorage.getItem('matricula') != null) ? TabsPage : LoginPage;
 
-        //this.router.navigate([TabsPage]);
-        this.rootPage = TabsPage;
+    })
 
-      }else{
-        this.rootPage = LoginPage;
-      }
-    }
-    )
-    
+
     // this.platform.ready().then(() => {
-    
+
     //   //Here we will check if the user is already logged in
     //   //because we don't want to ask users to log in each time they open the app
     //   this.nativeStorage.getItem('google_user').then( data =>{
@@ -102,7 +93,7 @@ export class MyApp implements OnInit, OnDestroy  {
     // });
   }
 
- 
+
 
   // configurarBGMode(): void {
   //   this.backgroundMode.setDefaults({

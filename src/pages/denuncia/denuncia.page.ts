@@ -25,6 +25,7 @@ export class DenunciaPage implements OnInit {
   exibirCamposForm: boolean = false;
   exibirCamposColaborador: boolean = false;
   exibirCamposPaciente: boolean = false;
+  dtNascimentoFuncionario: string;
 
   constructor(
     private storage: StorageService,
@@ -64,31 +65,50 @@ export class DenunciaPage implements OnInit {
 
   }
 
-  ngOnInit() {
-    if (localStorage.getItem("matricula") === "0" || localStorage.getItem("matricula") === undefined) {
+  formatDatPadrao(dat) {
+    const day = dat.slice(0, 2);
+    const month = dat.slice(2, 4);
+    const year = dat.slice(4, 8);
+    return day + "/" + month + "/" + year;
+  }
 
-      this.funcionario = false;
-    } else {
-      this.funcionario = true;
-      this.matriculaFuncionario = localStorage.getItem("matricula");
-    }
+  ngOnInit() {
+    // this.matriculaFuncionario = localStorage
+
+    this.funcionario = (localStorage.getItem("matricula") === "0" || localStorage.getItem("matricula") === undefined)
+                       ? false 
+                       : true
+                         [this.matriculaFuncionario = localStorage.getItem('matricula'),
+                          this.dtNascimentoFuncionario = localStorage.getItem('dat_nascimento')];
+
   }
 
   submited() {
-    let den = Object.assign({ 'token': 'SU5URVJORSNDT1JPTkFfVklSVVMj' },
+    let den = Object.assign({
+        'token': 'SU5URVJORSNDT1JPTkFfVklSVVMj',
+      'idprofissao': 1, 'dat_nascimento': this.dtNascimentoFuncionario
+    },
       { 'matricula': this.matriculaFuncionario },
       this.formDenuncia.value
 
     );
 
-    den.idade = this.calculateAge(den.dat_nascimento);
-    den.dat_nascimento = this.formatDat(den.dat_nascimento);
+    // den.dat_nascimento = this.formatDat(den.dat_nascimento);
     den.dt_ini_sintomas = this.formatDat(den.dt_ini_sintomas);
-
+    
     if (this.exibirCamposColaborador) {
-      den.idprofissao = localStorage.getItem('id_profissao');
+      // den.idp rofissao = localStorage.getItem('id_profissao');
+      den.idprofissao = 1;
+      den.dat_nascimento = this.dtNascimentoFuncionario;
+      den.idade = this.calculateAge(this.dtNascimentoFuncionario);
+
     } else if (this.exibirCamposPaciente) {
       den.idprofissao = 12;
+      den.dat_nascimento = this.formatDat(den.dat_nascimento);
+      den.idade = this.calculateAge(den.dat_nascimento);
+
+
+
     }
 
     // console.log(den);
@@ -185,25 +205,19 @@ export class DenunciaPage implements OnInit {
 
   setCamposPaciente(idTipoNotificacao: number) {
 
-
     if (idTipoNotificacao == 1) { //Setar Campos de Paciente sem estar no Paciente
 
       this.exibirCamposForm = true;
       this.exibirCamposColaborador = false;
       this.exibirCamposPaciente = true;
-
-      this.formDenuncia.get('nome').setValue('');
-      this.formDenuncia.get('sexo').setValue('');
-      this.formDenuncia.get('dat_nascimento').setValue('');
-      this.formDenuncia.get('idade').setValue('');
-      this.formDenuncia.get('telefone').setValue('');
-      this.formDenuncia.get('convenio').setValue('');
+      this.formDenuncia.reset();
 
     } else if (idTipoNotificacao == 2) { //Setar Campos de Colaborador sem estar no Colaborador
 
       this.exibirCamposForm = true;
       this.exibirCamposColaborador = true;
       this.exibirCamposPaciente = false;
+      this.formDenuncia.reset();
 
       this.formDenuncia.get('nome').setValue(localStorage.getItem('nome'));
       this.formDenuncia.get('sexo').setValue(localStorage.getItem('sexo'));
@@ -211,6 +225,7 @@ export class DenunciaPage implements OnInit {
       this.formDenuncia.get('idade').setValue(localStorage.getItem('idade'));
       this.formDenuncia.get('telefone').setValue(localStorage.getItem('telefone').replace(/\D/g, ""));
       this.formDenuncia.get('convenio').setValue('');
+      this.formDenuncia.get('idprofissao').setValue(1);
 
     }
 

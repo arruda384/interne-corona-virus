@@ -70,7 +70,7 @@ export class LoginPage {
   }
 
   async login() {
-    this.navCtrl.setRoot(TabsPage); //apagar
+    // this.navCtrl.setRoot(TabsPage); //apagar
     const loading = await this.loadingController.create({
       content: 'Carregando...',
       duration: 3000
@@ -79,7 +79,7 @@ export class LoginPage {
     this.setCred(this.form.value);
     this.presentLoading(loading);
 
-    localStorage.setItem('dat_nascimento', this.formatDatInverse(this.form.value.password));
+    localStorage.setItem('dat_nascimento', this.formatDat(this.form.value.password));
 
     console.log(this.creds)
     this.auth.authenticate(this.creds)
@@ -96,7 +96,6 @@ export class LoginPage {
 
         } else if (response.tipo === "INFO") {
           this.auth.successfulLogin(response, 1)
-          // this.auth.loginFuncionario.emit((true));     
           this.navCtrl.setRoot(TabsPage);
 
         }
@@ -105,11 +104,7 @@ export class LoginPage {
           alert(error.message);
           this.navCtrl.setRoot(LoginPage);
           console.log(error);
-
         });
-
-    //this.navCtrl.setRoot(TabsPage);
-
   }
 
   calculateAge(birthday) {
@@ -123,7 +118,6 @@ export class LoginPage {
     const month = dat.slice(2, 4);
     const year = dat.slice(4, 8);
     const result = year + "-" + month + "-" + day;
-    console.log(result);
     return result;
   }
 
@@ -131,8 +125,7 @@ export class LoginPage {
     const day = dat.slice(0, 2);
     const month = dat.slice(2, 4);
     const year = dat.slice(4, 8);
-    const result = day + "/" + month + "/" + year;
-    return result;
+    return  day + "/" + month + "/" + year;
   }
 
   async doGoogleLogin() {
@@ -148,8 +141,6 @@ export class LoginPage {
       'offline': true // Optional, but requires the webClientId - if set to true the plugin will also return a serverAuthCode, which can be used to grant offline access to a non-Google server
     })
       .then(user => {
-        // this.navCtrl.setRoot(TabsPage);
-        // this.auth.successfulLogin(user, 2);
 
         localStorage.setItem(STORAGE_KEYS.idade, (null));
         localStorage.setItem(STORAGE_KEYS.matricula, ('0'));
@@ -159,7 +150,6 @@ export class LoginPage {
         localStorage.setItem(STORAGE_KEYS.email, (user.email));
         loading.dismiss();
         this.navCtrl.setRoot(TabsPage);
-        // alert("linha 143");
 
       }, err => {
         console.log(err)

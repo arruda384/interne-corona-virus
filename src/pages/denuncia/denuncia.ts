@@ -25,6 +25,7 @@ export class Denuncia {
     ind_outros: boolean;
     ind_falta_ar : boolean;
     ind_subir_escada: boolean;
+    
 
     constructor(){
         
