@@ -235,19 +235,31 @@ export class DenunciaPage implements OnInit {
 
   setCamposPaciente(idTipoNotificacao: number) {
 
-    if (idTipoNotificacao == 1) { //Setar Campos de Paciente sem estar no Paciente
+    if (idTipoNotificacao == 1 && this.exibirCamposPaciente == false) { //Setar Campos de Paciente sem estar no Paciente
 
       this.exibirCamposForm = true;
       this.exibirCamposColaborador = false;
       this.exibirCamposPaciente = true;
       this.formDenuncia.reset();
 
-    } else if (idTipoNotificacao == 2) { //Setar Campos de Colaborador sem estar no Colaborador
+      this.checkBoxFebre = false;
+      this.checkBoxTosse = false;
+      this.checkBoxCongestao = false;
+      this.checkBoxDorGarganta = false;
+      this.checkBoxFaltaAr = false;
+
+    } else if (idTipoNotificacao == 2 && this.exibirCamposColaborador == false) { //Setar Campos de Colaborador sem estar no Colaborador
 
       this.exibirCamposForm = true;
       this.exibirCamposColaborador = true;
       this.exibirCamposPaciente = false;
       this.formDenuncia.reset();
+
+      this.checkBoxFebre = false;
+      this.checkBoxTosse = false;
+      this.checkBoxCongestao = false;
+      this.checkBoxDorGarganta = false;
+      this.checkBoxFaltaAr = false;
 
       this.formDenuncia.get('nome').setValue(localStorage.getItem('nome'));
       this.formDenuncia.get('sexo').setValue(localStorage.getItem('sexo'));

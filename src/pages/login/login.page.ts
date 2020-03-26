@@ -14,7 +14,6 @@ import { STORAGE_KEYS } from '../../config/storage_keys.config';
 
 // import { NativeStorage } from '@ionic-native/native-storage/ngx';
 
-
 @Component({
   selector: 'login-page',
   templateUrl: 'login.page.html',
