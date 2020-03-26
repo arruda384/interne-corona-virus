@@ -29,7 +29,8 @@ export class StorageService {
             localStorage.setItem(STORAGE_KEYS.sexo, (obj.sexo));
             localStorage.setItem(STORAGE_KEYS.telefone, (obj.telefone));
             localStorage.setItem(STORAGE_KEYS.email, (null));
-
+            localStorage.setItem(STORAGE_KEYS.idprofissao, (obj.idprofissao));
+            localStorage.setItem(STORAGE_KEYS.dat_nascimento, (obj.dat_nascimento));
 
         } else {
 

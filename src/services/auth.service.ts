@@ -29,7 +29,7 @@ export class AuthService {
         telefone: usuarioLogado.telefone,
         sexo: usuarioLogado.sexo,
         idade: usuarioLogado.idade,
-        dat_nascimento : null,
+        dat_nascimento : usuarioLogado.dat_nascimento,
         idprofissao : usuarioLogado.idprofissao
       }
       this.storage.setLocalUser(user);

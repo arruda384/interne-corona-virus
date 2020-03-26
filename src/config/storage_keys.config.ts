@@ -5,6 +5,8 @@ export const STORAGE_KEYS = {
     telefone: "telefone",
     sexo: "sexo",
     idade: "idade",
-    email: "email"
+    email: "email",
+    idprofissao: "idprofissao",
+    dat_nascimento: "dat_nascimento"
   
   }

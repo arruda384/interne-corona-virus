@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="covid19.beta" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Interne - CoronaVírus</name>
-    <description>Qualquer coisa</description>
-    <author email="rodrigo.araujo@interne.com.br" href="https://interne.com.br/">Interne Soluções em Saúde</author>
+    <description>Aplicativo para auxiliar o combate contra coronavírus (covid19) </description>
+    <author email="tic@interne.com.br" href="https://interne.com.br/">Interne Soluções em Saúde</author>
     <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
