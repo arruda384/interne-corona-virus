@@ -1,11 +1,8 @@
-import { Component, NgModule, OnInit } from '@angular/core';
-import { NavController, LoadingController, Button } from 'ionic-angular';
+import { Component, OnInit } from '@angular/core';
+import { NavController, LoadingController } from 'ionic-angular';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { DenunciaService } from "./services/denuncia.service";
 import { Denuncia } from './denuncia';
-import { TabsPage } from '../tabs/tabs';
-import { StorageService } from '../../services/storage.service';
-import { OverlayPortal } from 'ionic-angular/umd/components/app/overlay-portal';
 import { DenunciaChecked } from './denunciaChecked';
 import { HomePage } from '../home/home';
 
@@ -36,7 +33,6 @@ export class DenunciaPage implements OnInit {
   checkBoxFaltaAr: boolean = false;
 
   constructor(
-    private storage: StorageService,
     public navCtrl: NavController,
     private formBuilder: FormBuilder,
     private denunciaService: DenunciaService,

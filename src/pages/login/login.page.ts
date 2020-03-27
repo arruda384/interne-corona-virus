@@ -1,15 +1,10 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component} from '@angular/core';
 import { CredenciaisDTO } from '../../models/credenciais.dto';
-import { NavController, LoadingController, AlertController } from 'ionic-angular';
+import { NavController, LoadingController } from 'ionic-angular';
 import { AuthService } from '../../services/auth.service';
 import { TabsPage } from '../tabs/tabs';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { GooglePlus } from '@ionic-native/google-plus';
-import { Router } from '@angular/router';
-import { NativeStorage } from '@ionic-native/native-storage/ngx';
-import { JsonPipe } from '@angular/common';
-import { LocalUser } from '../../models/local_user';
-import { StorageService } from '../../services/storage.service';
 import { STORAGE_KEYS } from '../../config/storage_keys.config';
 
 // import { NativeStorage } from '@ionic-native/native-storage/ngx';
@@ -32,9 +27,8 @@ export class LoginPage {
   exibirLoginAd = false;
 
   constructor(public navCtrl: NavController, private formBuilder: FormBuilder,
-    public loadingController: LoadingController, private nativeStorage: NativeStorage,
-    private router: Router, private storage: StorageService,
-    private googlePlus: GooglePlus, private alertCtrl: AlertController,
+    public loadingController: LoadingController,
+    private googlePlus: GooglePlus,
     private auth: AuthService) {
 
     this.form = this.formBuilder.group({

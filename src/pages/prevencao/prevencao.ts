@@ -1,8 +1,5 @@
-import { Component, NgModule } from '@angular/core';
-import { HomePage } from '../home/home';
-
-import { ModalController, Platform, NavParams, ViewController, NavController } from 'ionic-angular';
-import { ModalContentPage } from '../modal/ModalContentPage';
+import { Component } from '@angular/core';
+import { ModalController, NavController } from 'ionic-angular';
 import { prevencaoDTO } from './prevencaoDTO';
 
 
@@ -82,16 +79,6 @@ Com base nessas evidências, a Organização Pan-Americana da Saúde/Organizaç�
 
       }
     ;
-  }
-
-  
-
-  openModal(characterNum) {
-
-    let modal = this.modalCtrl.create(ModalContentPage, characterNum);
-    modal.present();
-  }
-
-  
+  }  
 
 }

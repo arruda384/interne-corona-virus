@@ -1,11 +1,8 @@
 import { Injectable } from '@angular/core';
-import { environment } from '../../../environments/environment';
-import { HttpClient, HttpParams, HttpResponse, HttpHeaders } from '@angular/common/http';
-import { Observable, ObjectUnsubscribedError } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Denuncia } from '../denuncia';
 import { StorageService } from '../../../services/storage.service';
 import { API_CONFIG } from '../../../config/api.config';
-import { forEach } from '@angular/router/src/utils/collection';
 import { DenunciaChecked } from '../denunciaChecked';
 
 @Injectable()

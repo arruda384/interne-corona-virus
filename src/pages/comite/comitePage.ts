@@ -1,8 +1,7 @@
-import { Component, NgModule, OnInit } from '@angular/core';
-import { ModalController, Platform, NavParams, ViewController, NavController } from 'ionic-angular';
+import { Component, OnInit } from '@angular/core';
+import { ModalController, NavController } from 'ionic-angular';
 import { Comite } from './comite';
 import { ComiteService } from './services/comite.service';
-import { Observable } from 'rxjs';
 
 declare var require: any
 const FileSaver = require('file-saver');
@@ -25,15 +24,15 @@ export class ComitePage implements OnInit{
 
       this.pdfFiles = [
         {
-          nome:'PDF File ',   
+          nome:'Boletim',   
           link: 'http://sistemas.interne.com.br:8082/boletim/boletim001.pdf',
           data: '19/03/2020'
         },
-        {
-          nome:'Teste',
-          link: 'http://sistemas.interne.com.br:8082/boletim/boletim001.pdf',
-          data: '19/03/2020'
-        },
+        // {
+        //   nome:'Teste',
+        //   link: 'http://sistemas.interne.com.br:8082/boletim/boletim001.pdf',
+        //   data: '19/03/2020'
+        // },
         
       ];
 

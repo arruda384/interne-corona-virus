@@ -1,12 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Platform, NavController } from 'ionic-angular';
-import { SplashScreen } from '@ionic-native/splash-screen';
-import { StatusBar } from '@ionic-native/status-bar';
-import { BackgroundMode } from '@ionic-native/background-mode/ngx';
+import { Platform } from 'ionic-angular';
 import { TabsPage } from '../pages/tabs/tabs';
 import { LoginPage } from '../pages/login/login.page';
-import { NativeStorage } from '@ionic-native/native-storage/ngx';
-import { Router } from '@angular/router';
 
 
 
@@ -18,7 +13,7 @@ import { Router } from '@angular/router';
 })
 export class MyApp implements OnInit, OnDestroy {
 
-  rootPage: any = LoginPage;
+  rootPage: any;
 
   public appPages = [
 
@@ -29,11 +24,11 @@ export class MyApp implements OnInit, OnDestroy {
 
   constructor(
     private platform: Platform,
-    private splashScreen: SplashScreen,
-    private statusBar: StatusBar,
-    private backgroundMode: BackgroundMode,
-    private nativeStorage: NativeStorage,
-    private router: Router,
+    // private splashScreen: SplashScreen,
+    // private statusBar: StatusBar,
+    // private backgroundMode: BackgroundMode,
+    // private nativeStorage: NativeStorage,
+    // private router: Router,
 
 
   ) { }

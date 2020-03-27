@@ -4,8 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // import { Routes, RouterModule } from '@angular/core';
 import { LoginPage } from './login.page';
 import { IonicModule } from 'ionic-angular';
-import { AuthService } from '../../services/auth.service';
-import { Routes, RouterModule, Router } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
 import { GooglePlus } from '@ionic-native/google-plus';
 
 const routes: Routes = [
@@ -28,11 +27,7 @@ const routes: Routes = [
     LoginPage
   ],
   providers: [
-    AuthService,
     GooglePlus,
-   
-    
-    
   ]
 })
 export class LoginPageModule {}

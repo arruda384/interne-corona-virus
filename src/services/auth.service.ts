@@ -1,6 +1,5 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { CredenciaisDTO } from '../models/credenciais.dto';
 import { API_CONFIG } from '../config/api.config';
 import { LocalUser, GoogleUser } from '../models/local_user';
 import { StorageService } from './storage.service';
